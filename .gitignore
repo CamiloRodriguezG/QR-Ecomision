@@ -1,0 +1,79 @@
+# Dependencias de Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+
+# Directorios de runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directorios de cobertura
+lib-cov
+coverage/
+*.lcov
+
+# Directorios de dependencias
+.npm
+.eslintcache
+
+# Archivos temporales
+.tmp
+.temp
+
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archivos de IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de build
+dist/
+build/
+out/
+
+# Archivos de cache
+.cache/
+.parcel-cache/
+
+# Archivos de configuración local
+config.local.js
+config.local.json
+
+# Archivos de base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de backup
+*.bak
+*.backup
+
+# Archivos de media temporal
+uploads/
+temp/
+tmp/ 

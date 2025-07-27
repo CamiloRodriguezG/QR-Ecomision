@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/formulario.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div id="form-container">
+      <div class="contador-usuarios">
+        <i class="fa-solid fa-user"></i>
+        <span id="numero-usuarios"></span>
+        <div class="contador-info">
+          <p>Usuarios conectados respondiendo el test</p>
+        </div>
+      </div>
+      <h1>Descubre que guardian verde eres</h1>
+      <form id="form-preguntas">
+        <div class="contenedor-preguntas">
+          <div class="barra-avance"></div>
+          <div class="pregunta-contenedor">
+            <h2 class="pregunta-texto">
+              Pregunta 1. Lorem ipsum, dolor sit amet consectetur adipisicing
+              elit. Quaerat vero laudantium, iste autem perspiciatis atque
+              maxime tempora? Ipsum, magnam at, vel libero perferendis magni
+              expedita voluptates quaerat facilis doloribus optio?
+            </h2>
+            <ul class="opciones-contenedor">
+              <li class="opcion-pregunta">
+                <p>Pregunta 1 - Opcion 1</p>
+              </li>
+              <li class="opcion-pregunta">
+                <p>Pregunta 1 - Opcion 2</p>
+              </li>
+            </ul>
+          </div>
+          <div class="pregunta-contenedor">
+            <h2 class="pregunta-texto">
+              Pregunta 2. Lorem ipsum dolor sit amet consectetur adipisicing
+              elit.
+            </h2>
+            <ul class="opciones-contenedor">
+              <li class="opcion-pregunta">
+                <p>Pregunta 2 - Opcion 1</p>
+              </li>
+              <li class="opcion-pregunta">
+                <p>Pregunta 2 - Opcion 2</p>
+              </li>
+            </ul>
+          </div>
+          <div class="pregunta-contenedor">
+            <h2 class="pregunta-texto">
+              Pregunta 3. Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Quae impedit culpa doloremque itaque et amet magni illum
+              alias totam sequi quasi nesciunt
+            </h2>
+            <ul class="opciones-contenedor">
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 1</p>
+              </li>
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 2</p>
+              </li>
+            </ul>
+          </div>
+          <div class="pregunta-contenedor">
+            <h2 class="pregunta-texto">
+              Pregunta 3. Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Quae impedit culpa doloremque itaque et amet magni illum
+              alias totam sequi quasi nesciunt
+            </h2>
+            <ul class="opciones-contenedor">
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 1</p>
+              </li>
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 2</p>
+              </li>
+            </ul>
+          </div>
+          <div class="pregunta-contenedor">
+            <h2 class="pregunta-texto">
+              Pregunta 3. Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Quae impedit culpa doloremque itaque et amet magni illum
+              alias totam sequi quasi nesciunt
+            </h2>
+            <ul class="opciones-contenedor">
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 1</p>
+              </li>
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 2</p>
+              </li>
+            </ul>
+          </div>
+          <div class="pregunta-contenedor">
+            <h2 class="pregunta-texto">
+              Pregunta 3. Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Quae impedit culpa doloremque itaque et amet magni illum
+              alias totam sequi quasi nesciunt
+            </h2>
+            <ul class="opciones-contenedor">
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 1</p>
+              </li>
+              <li class="opcion-pregunta">
+                <p>Pregunta 3 - Opcion 2</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="navegacion-formulario">
+          <button
+            type="button"
+            id="anterior-btn"
+            class="btn-desactivado"
+            disabled
+          >
+            Anterior
+          </button>
+          <button type="button" id="siguiente-btn">Siguiente</button>
+        </div>
+      </form>
+    </div>
+    <div id="footer"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/include.js"></script>
+    <script src="./js/formulario.js"></script>
+  </body>
+</html>

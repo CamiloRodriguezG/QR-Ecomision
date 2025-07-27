@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+#form-container {
+  position: relative;
+  font-family: var(--fuente-principal);
+  padding: 50px 0;
+  /* height: 90vh; */
+  background-color: var(--color-verde-claro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 30px;
+}
+
+.contador-usuarios {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--color-negro);
+  color: var(--color-blanco);
+  padding: 10px;
+  gap: 10px;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+}
+
+.contador-info {
+  position: absolute;
+  text-align: center;
+  min-width: 200px;
+  top: 55px;
+  right: 0;
+  background: var(--color-verde);
+  color: var(--color-blanco);
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+#numero-usuarios {
+  transition: all 0.5s ease;
+}
+
+.contador-usuarios:hover .contador-info {
+  transform: translateY(5px);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.contador-info::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 8%;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid var(--color-verde);
+}
+
+#form-container h1 {
+  color: var(--color-verde);
+  text-transform: uppercase;
+}
+
+#form-preguntas {
+  width: 40%;
+  max-width: 900px;
+  margin: 0;
+}
+
+.contenedor-preguntas {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--color-negro);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+  position: relative;
+  min-height: 200px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.barra-avance {
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+  content: "";
+  top: 0px;
+  height: 5px;
+  background-color: var(--color-verde);
+  transition: all 0.3s ease;
+}
+
+.contenedor-preguntas .pregunta-contenedor {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.5s ease;
+  box-sizing: border-box;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.pregunta-contenedor.active {
+  position: relative;
+  top: 0;
+  opacity: 1;
+  z-index: 2;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.pregunta-contenedor.exit-up {
+  top: -100%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.pregunta-contenedor.exit-down {
+  top: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+
+#navegacion-formulario {
+  display: flex;
+  justify-content: space-between;
+}
+
+#navegacion-formulario button {
+  color: var(--color-blanco);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  background: var(--color-negro);
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+#navegacion-formulario button.btn-desactivado {
+  background-color: #cccccc;
+  color: #888888;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+#navegacion-formulario button.btn-desactivado:hover {
+  transform: none;
+  background-color: #cccccc;
+}
+
+#navegacion-formulario button:hover {
+  background: var(--color-verde);
+  transform: translateY(-3px);
+}
+
+.pregunta-contenedor {
+  padding: 20px;
+}
+
+.pregunta-contenedor .opciones-contenedor {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pregunta-contenedor .opcion-pregunta {
+  padding: 10px 15px;
+  background: #f3f1ff;
+  border: 1px solid #b5acff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pregunta-contenedor .opcion-pregunta.opcion-seleccionada {
+  /* border-color: #b7e1c1; */
+  border-color: #155724;
+  background: #d4edda;
+  color: #155724;
+}
+
+.pregunta-contenedor .opcion-pregunta.opcion-seleccionada:hover {
+  background: #d4edda;
+}
+
+.pregunta-contenedor .opcion-pregunta:hover {
+  background: #dad5fd;
+}
+
+/* Animación de terremoto */
+@keyframes terremoto {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  60% {
+    transform: translateX(3px);
+  }
+  70% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  90% {
+    transform: translateX(-1px);
+  }
+}
+
+.opciones-contenedor.terremoto {
+  animation: terremoto 1s ease-in-out;
+}
+
+.pregunta-texto {
+  text-align: justify;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
