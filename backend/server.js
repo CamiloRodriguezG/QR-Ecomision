@@ -24,7 +24,7 @@ io.on("connection", (socket) => {
 });
 
 const HOST = "0.0.0.0"; // Escucha desde cualquier interfaz
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, HOST, () => {
   console.log(`Servidor accesible en http://<ip-local>:${PORT}`);
