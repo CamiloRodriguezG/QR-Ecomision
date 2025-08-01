@@ -6,7 +6,6 @@ function includeHTML(id, url) {
       const footerLogo = document.querySelector(".footer-logo");
 
       if (footerLogo) {
-        console.log("entra");
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {

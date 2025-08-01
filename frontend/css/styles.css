@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 /* 
 Variables de colores
 */
 
 :root {
-  --fuente-principal: "Merriweather", serif;
+  --fuente-principal: "Rubik", sans-serif;
+  --fuente-secundaria: "Merriweather", serif;
 
   /* Propuestos por ilustradora */
   --color-amarillo: #fcc427;

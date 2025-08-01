@@ -65,3 +65,14 @@ footer nav a {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ======================================== */
+
+/* Móviles muy pequeños (< 480px) */
+@media (max-width: 479px) {
+  .footer-logo img {
+    height: 120px;
+  }
+}

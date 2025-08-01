@@ -3,8 +3,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--color-verde);
+  background-image: url("../img/Vegetacion_grafico.png");
+  background-size: contain;
+  background-repeat: repeat-x;
+  /* background-color: var(--color-amarillo); */
   font-family: var(--fuente-principal);
+  background-position: 0 -4px;
 }
 
 .logo {

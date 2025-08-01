@@ -4,12 +4,16 @@
   gap: 0;
 }
 
+header {
+  background-color: var(--color-amarillo);
+}
+
 #form-container {
+  text-align: center;
   position: relative;
   font-family: var(--fuente-principal);
-  padding: 50px 0;
-  /* height: 90vh; */
-  background-color: var(--color-verde-claro);
+  padding: 100px 0 50px 0;
+  background-color: var(--color-amarillo);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,12 +74,39 @@
 #form-container h1 {
   color: var(--color-verde);
   text-transform: uppercase;
+  max-width: 600px;
 }
 
 #form-preguntas {
-  width: 40%;
+  width: 90%;
   max-width: 900px;
-  margin: 0;
+  min-width: 300px;
+  margin: 100px auto 0 auto;
+}
+
+.top-pregunta {
+  color: var(--color-rosa);
+  border-radius: 10px 10px 0 0;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.imagen-lucian {
+  bottom: 0;
+  right: -25px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen-lucian img {
+  max-width: 115px;
+  height: auto;
+  object-fit: contain;
 }
 
 .contenedor-preguntas {
@@ -246,4 +277,160 @@
   text-align: justify;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+/* Estilos para el formulario de ingreso */
+.form-ingreso {
+  font-family: var(--fuente-principal);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-ingreso-container {
+  background-color: var(--color-blanco);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 95%;
+  max-width: 400px;
+  min-width: 280px;
+}
+
+.form-ingreso-container h2 {
+  color: var(--color-verde);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.form-ingreso-container p {
+  color: var(--color-negro);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.campo-formulario {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.campo-formulario label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-negro);
+  font-weight: 600;
+}
+
+.campo-formulario input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.campo-formulario input:focus {
+  outline: none;
+  border-color: var(--color-verde);
+}
+
+.btn-comenzar {
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-comenzar:hover {
+  background-color: #1e7e34;
+  transform: translateY(-2px);
+}
+
+/* Clase para ocultar el formulario de ingreso */
+.form-ingreso.oculto {
+  display: none;
+}
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ======================================== */
+
+/* Móviles muy pequeños (< 480px) */
+@media (max-width: 479px) {
+  .form-ingreso {
+    width: 100%;
+  }
+
+  .form-ingreso-container {
+    padding: 15px;
+    width: 80%;
+    /* min-width: 250px; */
+  }
+}
+
+/* Móviles medianos (≥ 480px) */
+@media (min-width: 480px) {
+  .form-ingreso-container {
+    padding: 30px;
+    width: 90%;
+  }
+}
+
+/* Tablets (≥ 768px) */
+@media (min-width: 768px) {
+  #form-preguntas {
+    width: 70%;
+  }
+
+  .form-ingreso-container {
+    padding: 40px;
+    width: 80%;
+  }
+}
+
+/* Laptops (≥ 1024px) */
+@media (min-width: 1024px) {
+  #form-preguntas {
+    width: 50%;
+  }
+
+  .form-ingreso-container {
+    width: 70%;
+  }
+}
+
+/* Desktop (≥ 1200px) */
+@media (min-width: 1200px) {
+  #form-preguntas {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contador-info {
+    top: -5px;
+    right: 70px;
+  }
+
+  .contador-info::before {
+    top: 10px;
+    right: -10px;
+    transform: rotate(90deg);
+  }
 }
