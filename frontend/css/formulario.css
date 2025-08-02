@@ -380,7 +380,19 @@ header {
   .form-ingreso-container {
     padding: 15px;
     width: 80%;
-    /* min-width: 250px; */
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2,
+  .pregunta-texto {
+    font-size: 1.2rem;
+  }
+
+  .imagen-lucian {
+    right: -10px;
   }
 }
 

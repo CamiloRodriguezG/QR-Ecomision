@@ -18,7 +18,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85vh;
+  padding: 60px 0;
   width: 100%;
 }
 
@@ -36,7 +36,7 @@ header {
 }
 
 #contenedor-ilustracion img {
-  max-height: 500px;
+  max-height: 450px;
 }
 
 #contenedor-selecciones {
@@ -67,4 +67,61 @@ header {
 
 #contenedor-selecciones .h-opcion-1 {
   background-color: var(--color-verde-claro);
+}
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ======================================== */
+
+/* Pantallas pequeñas ( <= 1024px) */
+@media (max-width: 1024px) {
+  .contenedor-historia {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 70% 30%;
+    padding: 50px 0;
+    gap: 10px;
+  }
+
+  #contenedor-texto-historia {
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  #contenedor-ilustracion {
+    width: 100%;
+    position: relative;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #contenedor-ilustracion img {
+    max-height: 150px;
+  }
+
+  #contenedor-selecciones {
+    width: 100%;
+
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  #contenedor-ilustracion,
+  #contenedor-selecciones {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #contenedor-texto-historia {
+    font-size: 1.2rem;
+  }
+  #contenedor-selecciones .historia-opcion {
+    padding: 10px 30px;
+    font-size: 1rem;
+  }
 }
