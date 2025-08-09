@@ -3,13 +3,45 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-image: url("../img/Vegetacion_grafico.png");
-  background-size: contain;
-  background-repeat: repeat-x;
-  /* background-color: var(--color-amarillo); */
+  /* background-image: url('../img/Vegetacion_grafico.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  background-color: var(--color-verde);
   font-family: var(--fuente-principal);
-  background-position: 0 -4px;
+  /* height: 200px;
+  min-height: 200px; */
+  background-position: 0 -10px;
 }
+
+/* .header-wrapper {
+  overflow: hidden;
+}
+
+header {
+  position: relative;
+  height: 230px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 1rem 2rem;
+  font-family: var(--fuente-principal);
+  z-index: 1;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -80px;
+  width: calc(100% + 80px);
+  height: 100%;
+  background-image: url('../img/Vegetacion_grafico.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+} */
 
 .logo {
   display: flex;
@@ -32,12 +64,12 @@ nav a {
   text-decoration: none;
   color: var(--color-blanco);
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   transition: all 0.3s ease;
 }
 
 nav a::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;

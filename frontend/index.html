@@ -16,14 +16,157 @@
   <body>
     <div id="header"></div>
     <main>
+      <div class="pantalla-bienvenida">
+        <div>
+          <h1 class="titulo-subtitulo">TU GUARDIÁN</h1>
+          <p class="texto-alt">Tu guardián verde cerca a ti</p>
+        </div>
+      </div>
       <div class="contenedor-historia">
-        <div id="contenedor-texto-historia"></div>
-        <div id="contenedor-ilustracion"></div>
-        <div id="contenedor-selecciones"></div>
+        <div class="contenedor-parte activa">
+          <div class="contenedor-texto-historia">
+            <p>
+              Bienvenido, amigo. Hoy descubriremos juntos cómo cada uno de nuestros actos impacta
+              este lugar.
+            </p>
+            <p>Ven, acompáñame junto a dos guardianes muy especiales...</p>
+          </div>
+          <div class="contenedor-ilustracion">
+            <img src="./img/lucian/Lucian_N1.png" alt="Lucian dando la bienvenida" />
+          </div>
+          <div class="contenedor-selecciones">
+            <button>Continuar</button>
+          </div>
+        </div>
+        <div class="contenedor-parte">
+          <div class="contenedor-texto-historia">
+            <p>
+              Todos vivimos aquí y dependemos de un agua limpia y de un hábitat sano, aquí cada
+              residuo mal clasificado altera el equilibrio.
+            </p>
+          </div>
+          <div class="contenedor-ilustracion">
+            <img src="./img/lucian/Lucian_N1.png" alt="Lucian introduciendo" />
+            <img src="./img/lucian/Lucian_N1.png" alt="Tingua" />
+            <img src="./img/lucian/Lucian_N1.png" alt="Comadreja" />
+          </div>
+          <div class="contenedor-selecciones">
+            <button>Continuar</button>
+          </div>
+        </div>
+        <div class="contenedor-parte">
+          <div class="contenedor-texto-historia">
+            <p>
+              Lucian señala un camino de senderos semiorugados y se acerca a un punto de reunión de
+              visitantes. En el suelo hay tres objetos
+            </p>
+            <ul>
+              <li>Una <b>cascara de banano</b></li>
+              <li>Una <b>botella plástica vacía</b></li>
+              <li>Un <b>guante desechable</b></li>
+            </ul>
+            <p>¿Dónde va la cáscara de banano?</p>
+          </div>
+          <div class="contenedor-ilustracion">
+            <img src="./img/lucian/Lucian_N1.png" alt="Tingua" />
+          </div>
+          <div class="contenedor-selecciones">
+            <button>Contenedor verde</button>
+            <button>Contenedor blanco</button>
+          </div>
+        </div>
+        <div class="contenedor-parte">
+          <div class="contenedor-texto-historia">
+            <p>Bien, ahora vienen dos más. Cada elección cuenta.</p>
+            <p>¿Dónde va la botella plástica vacía?</p>
+          </div>
+          <div class="contenedor-ilustracion">
+            <img src="./img/lucian/Lucian_N1.png" alt="Tingua" />
+          </div>
+          <div class="contenedor-selecciones">
+            <button>Contenedor blanco</button>
+            <button>Contenedor negro</button>
+          </div>
+        </div>
+        <div class="contenedor-parte">
+          <div class="contenedor-texto-historia">
+            <p>Lucian, Tingua y Comadreja se juntan al borde del agua.</p>
+            <p>Por último, el guante...</p>
+            <p>¿Dónde va el guante desechable?</p>
+          </div>
+          <div class="contenedor-ilustracion">
+            <img src="./img/lucian/Lucian_N1.png" alt="Tingua" />
+          </div>
+          <div class="contenedor-selecciones">
+            <button>Contenedor rojo</button>
+            <button>Contenedor negro</button>
+          </div>
+        </div>
+        <div class="contenedor-parte" id="final-positivo">
+          <div class="contenedor-texto-historia">
+            <p>Lucian sonríe sereno.</p>
+            <p>¡Excelente! Gracias a ti, los tres guardianes respiran tranquilos:</p>
+            <ul>
+              <li>Tingua bogotana expande sus alas y canta sobre aguas limpias.</li>
+              <li>Comadreja de cola larga se adentra a jugar entre tallos de enea.</li>
+              <li>
+                El humedal reluce, la vegetación crece y los canales fluyen sin obstrucciones.
+              </li>
+            </ul>
+            <p>Un arco iris de luz se filtra en el amanecer. Lucian concluye:</p>
+            <p>
+              Cada residuo bien clasificado fortalece la vida aquí. ¡Así es la magia de la
+              separación en la fuente!
+            </p>
+          </div>
+          <div class="contenedor-ilustracion">
+            <img src="./img/lucian/Lucian_N1.png" alt="Tingua" />
+          </div>
+          <div class="contenedor-selecciones">
+            <button>Volver a iniciar historia</button>
+          </div>
+        </div>
+        <div class="contenedor-parte" id="final-adverso">
+          <div class="contenedor-texto-historia">
+            <p>Lucian frunce el ceño con calma.</p>
+            <p>
+              Veamos qué ocurrió... algunos residuos llegaron al lugar equivocado, y esto ha
+              provocado:
+            </p>
+            <ul>
+              <li>
+                Obstáculos en los canales, retardando el flujo del agua al humedal impidiendo que la
+                tingua nade en sus aguas.
+              </li>
+              <li>
+                Manchas de grasa y plástico entre las cañas, dañando el hábitat de Tingua y
+                Comadreja.
+              </li>
+              <li>
+                Aumento de malos olores y riesgo de enfermedades para la fauna y la comunidad, ya
+                que el ecosistema se ve degradado, por lo que pone en riesgo la permanencia de los
+                guardianes en su hábitat lo que conllevaría a que se tengan que desplazar del
+                humedal por su bienestar, causando pérdida de biodiversidad y a su vez servicios
+                ecosistémicos claves para la ciudad.
+              </li>
+            </ul>
+            <p>La luz del amanecer se torna grisácea. Lucian te anima con empatía:</p>
+            <p>
+              No te preocupes: cada error es una oportunidad de aprender. Regresemos y clasifiquemos
+              de nuevo, paso a paso, para restaurar este santuario natural.
+            </p>
+          </div>
+          <div class="contenedor-ilustracion">
+            <img src="./img/lucian/Lucian_N1.png" alt="Tingua" />
+          </div>
+          <div class="contenedor-selecciones">
+            <button>Volver a iniciar historia</button>
+          </div>
+        </div>
       </div>
     </main>
     <div id="footer"></div>
-    <script src="./js/historia.js"></script>
     <script src="./js/include.js"></script>
+    <script src="./js/historia.js"></script>
   </body>
 </html>

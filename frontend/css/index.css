@@ -10,7 +10,7 @@ main {
 header {
   background-color: var(--color-blanco);
 }
-
+/*
 .contenedor-historia {
   font-family: var(--fuente-principal);
   position: relative;
@@ -67,13 +67,15 @@ header {
 
 #contenedor-selecciones .h-opcion-1 {
   background-color: var(--color-verde-claro);
-}
+} 
+  */
 
 /* ========================================
    MEDIA QUERIES - RESPONSIVE DESIGN
    ======================================== */
 
 /* Pantallas pequeñas ( <= 1024px) */
+/* 
 @media (max-width: 1024px) {
   .contenedor-historia {
     display: grid;
@@ -124,4 +126,33 @@ header {
     padding: 10px 30px;
     font-size: 1rem;
   }
+} 
+  */
+header nav a:first-child {
+  color: var(--color-amarillo);
+}
+
+.pantalla-bienvenida {
+  height: 90vh;
+  background-color: var(--color-verde);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pantalla-bienvenida h1 {
+  color: var(--color-amarillo);
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.pantalla-bienvenida p {
+  margin-top: -15px;
+  text-align: right;
+  color: var(--color-blanco);
+}
+
+.contenedor-ilustracion img {
+  max-width: 150px;
 }
