@@ -1,8 +1,10 @@
 // backend/server.js
-const express = require("express");
-const http = require("http");
-const socketIo = require("socket.io");
-const path = require("path");
+const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+const path = require('path');
+
+const personajesRoutes = require('./routes/personajeRoutes');
 
 const app = express();
 const server = http.createServer(app);
@@ -10,20 +12,26 @@ const io = socketIo(server);
 
 let usuariosConectados = 0;
 
+// Middleware para parsear JSON
+app.use(express.json());
+
+// Rutas API
+app.use('/personajes', personajesRoutes);
+
 // Enviar archivos estáticos desde el frontend
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
-io.on("connection", (socket) => {
+io.on('connection', (socket) => {
   usuariosConectados++;
-  io.emit("userCount", usuariosConectados);
+  io.emit('userCount', usuariosConectados);
 
-  socket.on("disconnect", () => {
+  socket.on('disconnect', () => {
     usuariosConectados--;
-    io.emit("userCount", usuariosConectados);
+    io.emit('userCount', usuariosConectados);
   });
 });
 
-const HOST = "0.0.0.0"; // Escucha desde cualquier interfaz
+const HOST = '0.0.0.0'; // Escucha desde cualquier interfaz
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, HOST, () => {
