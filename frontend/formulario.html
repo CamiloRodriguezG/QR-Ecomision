@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://efuturo.org/wp-content/uploads/2025/05/cropped-EFuturo-AmarVerde-32x32.png"
+      sizes="32x32"
+    />
     <title>Ecomision - Descubre tu personaje</title>
     <link
       rel="stylesheet"
@@ -32,7 +37,7 @@
     <div id="form-container">
       <div class="contador-usuarios">
         <i class="fa-solid fa-user"></i>
-        <span id="numero-usuarios"></span>
+        <span class="titulo-subtitulo" id="numero-usuarios"></span>
         <div class="contador-info">
           <p class="titulo-subtitulo">Usuarios conectados respondiendo el test</p>
         </div>
@@ -170,53 +175,14 @@
         </div>
 
         <div id="navegacion-formulario">
-          <button type="button" id="anterior-btn" class="btn-desactivado" disabled>Anterior</button>
-          <button type="button" id="siguiente-btn">Siguiente</button>
+          <button type="button" id="anterior-btn" class="btn-desactivado titulo-subtitulo" disabled>
+            Anterior
+          </button>
+          <button type="button" id="siguiente-btn" class="titulo-subtitulo">Siguiente</button>
         </div>
       </form>
     </div>
-    <div id="resultados-container">
-      <h2 class="titulo-subtitulo">¡Tenemos tus resultados!</h2>
-      <div class="personaje-seleccionado-card">
-        <div class="imagen-personaje-seleccionado">
-          <img src="./img/lucian/Lucian_N5.png" alt="personaje" />
-        </div>
-        <div class="descripcion-personaje-seleccionado">
-          <h3 class="titulo-subtitulo">Lucian</h3>
-          <p class="texto-alt">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo libero necessitatibus quis
-            velit provident sit error mollitia delectus.
-          </p>
-        </div>
-      </div>
-      <h4 class="titulo-subtitulo">Pero tambien puedes ser ellos:</h2>
-      <div class="otros-personajes">
-        <div class="otro-personaje-card">
-          <div class="imagen-personaje-alt">
-            <img src="./img/lucian/Lucian_N5.png" alt="personaje" />
-          </div>
-          <div class="descripcion-personaje-alt">
-            <h3 class="titulo-subtitulo">Lucian</h3>
-            <p class="texto-alt">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo libero necessitatibus
-              quis velit provident sit error mollitia delectus.
-            </p>
-          </div>
-        </div>
-        <div class="otro-personaje-card">
-          <div class="imagen-personaje-alt">
-            <img src="./img/lucian/Lucian_N5.png" alt="personaje" />
-          </div>
-          <div class="descripcion-personaje-alt">
-            <h3 class="titulo-subtitulo">Lucian</h3>
-            <p class="texto-alt">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo libero necessitatibus
-              quis velit provident sit error mollitia delectus.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="resultados-container"></div>
     <div id="footer"></div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./js/include.js"></script>

@@ -29,3 +29,13 @@ Variables de colores
 .texto-alt {
   font-family: var(--fuente-secundaria);
 }
+
+button {
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 20px 50px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}

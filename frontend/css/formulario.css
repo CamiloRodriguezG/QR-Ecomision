@@ -9,6 +9,11 @@ header nav a:last-child {
 }
 
 #form-container {
+  background-image: url('../img/otras/PatronAgua_Grafico_v2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: 200% 200%; */
   text-align: center;
   position: relative;
   padding: 100px 0 50px 0;
@@ -51,6 +56,7 @@ header nav a:last-child {
 }
 
 #numero-usuarios {
+  font-size: 900;
   transition: all 0.5s ease;
 }
 
@@ -179,16 +185,8 @@ header nav a:last-child {
 }
 
 #navegacion-formulario button {
-  font-family: var(--fuente-principal);
   color: var(--color-blanco);
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
   background: var(--color-verde);
-  padding: 20px 50px;
-  font-size: 1rem;
-  border-radius: 30px;
-  transition: all 0.3s ease;
 }
 
 #navegacion-formulario button.btn-desactivado {
@@ -400,9 +398,11 @@ header nav a:last-child {
 }
 
 #resultados-container h2 {
-  margin-top: 100px;
-  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2rem;
   color: var(--color-verde);
+  max-width: 600px;
 }
 
 .personaje-seleccionado-card {
@@ -410,7 +410,7 @@ header nav a:last-child {
   display: flex;
   justify-content: center;
   align-items: start;
-  width: 40%;
+  width: 90%;
   min-width: 300px;
   margin: 50px 0;
   height: auto;
@@ -422,9 +422,11 @@ header nav a:last-child {
   padding: 20px;
 }
 
-.imagen-personaje-seleccionado img,
+.imagen-personaje-seleccionado img {
+  max-height: 200px;
+}
 .imagen-personaje-alt img {
-  max-width: 100px;
+  max-height: 120px;
 }
 
 .descripcion-personaje-seleccionado {
@@ -452,12 +454,11 @@ header nav a:last-child {
 }
 
 .otros-personajes {
-  width: 40%;
+  width: 90%;
   min-width: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 100px;
   gap: 10px;
 }
 
@@ -488,6 +489,82 @@ header nav a:last-child {
   font-size: 0.7rem;
 }
 
+.top-personajes {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.top-personajes {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-cards {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card img {
+  width: 100px;
+}
+
+/* Alturas tipo podio */
+.oro {
+  background: #ffeb3b;
+  height: 300px;
+}
+.plata {
+  background: #cfd8dc;
+  height: 275px;
+}
+.bronce {
+  background: #d7a86e;
+  height: 250px;
+}
+
+/* Medallas */
+.medalla i {
+  font-size: 2rem;
+}
+
+.oro .medalla i {
+  color: gold;
+}
+
+.plata .medalla i {
+  color: silver;
+}
+
+.bronce .medalla i {
+  color: #cd7f32; /* bronce */
+}
+
+.card-count {
+  background: var(--color-blanco);
+  color: var(--color-verde);
+  padding: 10px;
+  border-radius: 5px;
+}
+
 /* ========================================
    MEDIA QUERIES - RESPONSIVE DESIGN
    ======================================== */
@@ -503,17 +580,25 @@ header nav a:last-child {
     width: 80%;
   }
 
-  h1 {
+  .texto-bienvenida h1,
+  #resultados-container h2 {
     font-size: 1.5rem;
   }
 
-  h2,
+  #numero-pregunta {
+    font-size: 1.5rem;
+  }
+
   .pregunta-texto {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .imagen-lucian {
     right: -10px;
+  }
+
+  #navegacion-formulario button {
+    padding: 15px 37px;
   }
 }
 
@@ -527,7 +612,10 @@ header nav a:last-child {
 
 /* Tablets (≥ 768px) */
 @media (min-width: 768px) {
-  #form-preguntas {
+  #form-preguntas,
+  .otros-personajes,
+  .personaje-seleccionado-card,
+  .top-cards {
     width: 70%;
   }
 
@@ -539,7 +627,10 @@ header nav a:last-child {
 
 /* Laptops (≥ 1024px) */
 @media (min-width: 1024px) {
-  #form-preguntas {
+  #form-preguntas,
+  .otros-personajes,
+  .personaje-seleccionado-card,
+  .top-cards {
     width: 50%;
   }
 
@@ -550,7 +641,10 @@ header nav a:last-child {
 
 /* Desktop (≥ 1200px) */
 @media (min-width: 1200px) {
-  #form-preguntas {
+  #form-preguntas,
+  .otros-personajes,
+  .personaje-seleccionado-card,
+  .top-cards {
     width: 40%;
   }
 }
