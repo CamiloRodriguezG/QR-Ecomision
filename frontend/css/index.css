@@ -132,6 +132,7 @@ header nav a:first-child {
 .contenedor-ilustracion img {
   position: absolute;
   max-width: 250px;
+  max-height: 250px;
   z-index: 10;
 }
 
