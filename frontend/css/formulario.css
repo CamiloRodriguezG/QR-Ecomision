@@ -406,10 +406,9 @@ header nav a:last-child {
 }
 
 .personaje-seleccionado-card {
-  gap: 30px;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   width: 90%;
   min-width: 300px;
   margin: 50px 0;
@@ -571,6 +570,28 @@ header nav a:last-child {
 
 /* Móviles muy pequeños (< 480px) */
 @media (max-width: 479px) {
+  .card img {
+    max-width: 80px;
+    max-height: 100px;
+    width: auto;
+  }
+
+  .oro {
+    height: 250px;
+  }
+  .plata {
+    background: #cfd8dc;
+    height: 225px;
+  }
+  .bronce {
+    background: #d7a86e;
+    height: 200px;
+  }
+
+  .imagen-personaje-seleccionado img {
+    max-width: 150px;
+  }
+
   .form-ingreso {
     width: 100%;
   }

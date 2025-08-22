@@ -3,7 +3,7 @@ const formDatosPersonales = document.getElementById('form-datos-personales');
 const nombreInput = document.getElementById('nombre');
 const numeroPregunta = document.getElementById('numero-pregunta');
 const textoBienvenida = document.querySelector('.texto-bienvenida');
-const formContainer = document.getElementById('form-container');
+const formContainer = document.getElementById('form-preguntas');
 const preguntas = document.querySelectorAll('.pregunta-contenedor');
 const imagenLucian = document.querySelector('.imagen-lucian');
 const btnAnterior = document.getElementById('anterior-btn');
@@ -121,11 +121,13 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo libero necessitatibus quis velit provident sit error mollitia delectus.',
       imagen: '../img/lucas/Lucas_1.png',
     },
+    /*
     pendiente: {
       nombre: '¿?',
       texto: '¿?',
       imagen: '',
     },
+    */
   };
 
   /*
@@ -287,14 +289,9 @@ btnSiguiente.addEventListener('click', () => {
     cargarResultados(usuario, opcionesSeleccionadas);
 
     setTimeout(() => {
-      preguntaActual.classList.add('deshabilitado');
-      numeroPregunta.classList.add('deshabilitado');
-      imagenLucian.classList.add('deshabilitado');
-      btnAnterior.classList.add('deshabilitado');
-      btnSiguiente.classList.add('deshabilitado');
-      formContainer.style.backgroundImage = 'none';
+      formContainer.classList.add('deshabilitado');
+      document.getElementById('form-container').style.backgroundImage = 'none';
       barraAvance.style.width = '100%';
-      barraAvance.classList.add('deshabilitado');
       document.getElementById('resultados-container').scrollIntoView({
         behavior: 'smooth',
         block: 'start',
