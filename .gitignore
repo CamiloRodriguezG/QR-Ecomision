@@ -77,3 +77,6 @@ config.local.json
 uploads/
 temp/
 tmp/ 
+
+# Archivos de firebase Studi
+dev.nix
