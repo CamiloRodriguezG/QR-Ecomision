@@ -101,31 +101,354 @@ function mostrarPregunta(nueva) {
   barraAvance.style.width = `${avance}%`;
 }
 
+function manejarEventosEnTarjetas() {
+  const tarjetas = document.querySelectorAll('.otro-personaje-card');
+  tarjetas.forEach((tarjeta) => {
+    tarjeta.addEventListener('click', () => {
+      tarjeta.classList.toggle('expandida');
+    });
+  });
+}
+
+function obtenerPersonaje(opcionesSeleccionadas) {
+  console.log(opcionesSeleccionadas);
+  const respuestas = {
+    preguntas: [
+      {
+        id: 1,
+        texto: 'En tu grupo de amigos, tú eres más…',
+        opciones: [
+          { texto: 'Quien da consejos prácticos y tranquilos.', personaje: 'Lucian' },
+          { texto: 'Quien siempre inventa algo nuevo con lo que hay.', personaje: 'Lucas' },
+          { texto: 'Quien que todos hagan las cosas bien y ordenadas.', personaje: 'Naira' },
+          { texto: 'Quien asume los riesgos y protege al grupo.', personaje: 'Rojo' },
+        ],
+      },
+      {
+        id: 2,
+        texto: 'Encuentras una botella plástica vacía en la calle: ¿qué haces?',
+        opciones: [
+          {
+            texto: 'Si está sucia, la limpio y la dispongo adecuadamente en la bolsa reciclaje.',
+            personaje: 'Naira',
+          },
+          { texto: 'La guardo por si puedo transformarla en algo útil.', personaje: 'Lucas' },
+          {
+            texto:
+              'Pienso que, si no se gestiona, terminará dañando el suelo, prefiero depositarla en el contenedor correcto.',
+            personaje: 'Lucian',
+          },
+          {
+            texto:
+              'Me preocupa que algunos envases contengan algo peligroso, verifico si requiere manejo especial.',
+            personaje: 'Rojo',
+          },
+          { texto: 'No hacer ninguna acción y seguir por delante', personaje: null },
+        ],
+      },
+      {
+        id: 3,
+        texto: 'En relación al agua en casa (uso en limpieza, ducha, riego), tú normalmente:',
+        opciones: [
+          {
+            texto:
+              'Reutilizas aguas de la ducha o lavadora para riego y fomentas el ahorro del agua.',
+            personaje: 'Lucian',
+          },
+          {
+            texto:
+              'Evitas verter aceites de cocina usado al fregadero y reciclas el agua cuando es posible.',
+            personaje: 'Naira',
+          },
+          {
+            texto: 'Buscas soluciones caseras para captar agua y reutilizarla.',
+            personaje: 'Lucas',
+          },
+          {
+            texto:
+              'Cuidas que productos químicos domésticos no entren al sistema de agua para evitar que se contamine.',
+            personaje: 'Rojo',
+          },
+        ],
+      },
+      {
+        id: 4,
+        texto: 'Cuando ves restos de frutas o verduras después de cocinar, piensas que…',
+        opciones: [
+          { texto: 'Son alimento para la tierra, deberían volver al suelo.', personaje: 'Lucian' },
+          {
+            texto: 'Tal vez podrían usarse para hacer otra cosa creativa, no todo es basura.',
+            personaje: 'Lucas',
+          },
+          {
+            texto: 'Si no se separan bien terminan contaminando el agua y eso me preocupa.',
+            personaje: 'Naira',
+          },
+          {
+            texto:
+              'Algunos restos pueden atraer plagas o enfermedades, hay que manejarlos con cuidado.',
+            personaje: 'Rojo',
+          },
+          { texto: 'Disponer el residuo en cualquier basura.', personaje: null },
+        ],
+      },
+      {
+        id: 5,
+        texto: '¿Qué haces cuando terminas un jugo en caja (Tetrapak)?',
+        opciones: [
+          {
+            texto:
+              'Me aseguro de vaciar el resto de contenido en orgánicos y luego si se dispone en la bolsa blanca.',
+            personaje: 'Naira',
+          },
+          { texto: 'Pienso en usarlo como artesanías o manualidades.', personaje: 'Lucas' },
+          {
+            texto: 'Reflexiono en cómo esos empaques duran tanto y afectan a la tierra.',
+            personaje: 'Lucian',
+          },
+          {
+            texto:
+              'Me preocupa si queda con residuos líquidos que puedan contaminar o atraer bichos.',
+            personaje: 'Rojo',
+          },
+        ],
+      },
+      {
+        id: 6,
+        texto: '¿Qué haces con las cosas que ya no sirven en casa?',
+        opciones: [
+          {
+            texto: 'Trato de repararlas o darles otro uso para extender su vida útil.',
+            personaje: 'Lucas',
+          },
+          { texto: 'Reviso si pueden reciclarse y van a la bolsa correcta.', personaje: 'Naira' },
+          {
+            texto: 'Pienso si son orgánicas y podrían regresar al ciclo natural.',
+            personaje: 'Lucian',
+          },
+          {
+            texto: 'Me fijo si son peligrosas (pilas, químicos) y las separo con cuidado.',
+            personaje: 'Rojo',
+          },
+          { texto: 'Tirarlo en la basura porque no funciona.', personaje: null },
+        ],
+      },
+      {
+        id: 7,
+        texto: '¿Qué haces con las pilas usadas en tu casa?',
+        opciones: [
+          { texto: 'Busco un punto de recolección segura.', personaje: 'Rojo' },
+          {
+            texto: 'Emplear pilas recargables que permitan extender uso y vida útil.',
+            personaje: 'Lucas',
+          },
+          { texto: 'Las separo de los demás residuos para que no contaminen.', personaje: 'Naira' },
+          {
+            texto: 'Pienso en cómo afectan al suelo si no se gestionan bien.',
+            personaje: 'Lucian',
+          },
+          { texto: 'Desecharlas en la primera basura que encuentro.', personaje: null },
+        ],
+      },
+      {
+        id: 8,
+        texto:
+          'Si tu comunidad crea un reto para mejorar la gestión de residuos, ¿qué rol tomarías?',
+        opciones: [
+          {
+            texto:
+              'Enseñar cómo compostar y explicar por qué importa devolver materia a la tierra.',
+            personaje: 'Lucian',
+          },
+          {
+            texto: 'Coordinar la separación y buscar alianzas con recicladores locales.',
+            personaje: 'Naira',
+          },
+          {
+            texto: 'Idear proyectos creativos con materiales que ya no sirven.',
+            personaje: 'Lucas',
+          },
+          {
+            texto: 'Asegurar protocolos para residuos que representen un riesgo (pilas, químicos).',
+            personaje: 'Rojo',
+          },
+        ],
+      },
+      {
+        id: 9,
+        texto: 'Ves basura flotando en un canal cercano: tu primer pensamiento es…',
+        opciones: [
+          {
+            texto: '¿Cómo podemos devolver el equilibrio al ecosistema con soluciones naturales?',
+            personaje: 'Lucian',
+          },
+          {
+            texto:
+              '¿Cómo evitar que esto afecte la vida del agua y qué materiales se pudieron separar?',
+            personaje: 'Naira',
+          },
+          {
+            texto: '¿Cómo podemos evitar la contaminación al transformar en algo?',
+            personaje: 'Lucas',
+          },
+          {
+            texto: '¿Hay sustancias peligrosas allí que requieran reporte y manejo especializado?',
+            personaje: 'Rojo',
+          },
+        ],
+      },
+      {
+        id: 10,
+        texto: 'Piensas en el futuro de tu barrio: ¿qué imagen te gustaría ver?',
+        opciones: [
+          {
+            texto: 'Huertas y suelos fértiles donde vuelva lo que se consume.',
+            personaje: 'Lucian',
+          },
+          {
+            texto: 'Sistemas de reciclaje que impulsen emprendimientos locales.',
+            personaje: 'Naira',
+          },
+          {
+            texto: 'Comunidades creativas que transformen lo desechado en recursos.',
+            personaje: 'Lucas',
+          },
+          {
+            texto: 'Zonas seguras donde los residuos peligrosos se gestionen correctamente.',
+            personaje: 'Rojo',
+          },
+        ],
+      },
+      {
+        id: 11,
+        texto: 'En relación con vegetación y corredores verdes en tu entorno, tú prefieres:',
+        opciones: [
+          {
+            texto: 'Cultivar y proteger especies que nutran el suelo y atraigan biodiversidad.',
+            personaje: 'Lucian',
+          },
+          {
+            texto: 'Promover zonas limpias y señalizadas que eviten contaminación del hábitat.',
+            personaje: 'Naira',
+          },
+          {
+            texto:
+              'Diseñar pequeños proyectos participativos (jardines con materiales reciclados).',
+            personaje: 'Lucas',
+          },
+          {
+            texto: 'Asegurar que no se ingresen materiales peligrosos a estos espacios.',
+            personaje: 'Rojo',
+          },
+        ],
+      },
+      {
+        id: 12,
+        texto: 'Si tuvieras que dar un consejo rápido sobre residuos, dirías:',
+        opciones: [
+          { texto: '“Devuelve a la tierra lo que le pertenece.”', personaje: 'Lucian' },
+          { texto: '“Separa lo limpio y dalo al que puede aprovecharlo.”', personaje: 'Naira' },
+          { texto: '“Si no sirve ni se transforma, al negro debe.”', personaje: 'Lucas' },
+          {
+            texto: '“Lo peligroso no se mezcla: Entrégalo de forma segura en el lugar correcto.”',
+            personaje: 'Rojo',
+          },
+        ],
+      },
+    ],
+  };
+  const puntajes = {};
+
+  opcionesSeleccionadas.forEach((respuestaTexto, preguntaIndex) => {
+    respuestaTexto = respuestaTexto.trim();
+    const pregunta = respuestas.preguntas[preguntaIndex];
+    if (!pregunta) return;
+
+    const opcionElegida = pregunta.opciones.find((op) => op.texto === respuestaTexto);
+
+    if (opcionElegida && opcionElegida.personaje) {
+      puntajes[opcionElegida.personaje] = (puntajes[opcionElegida.personaje] || 0) + 1;
+    }
+  });
+
+  let personajeGanador = null;
+  let maxPuntos = -1;
+
+  for (const [personaje, puntos] of Object.entries(puntajes)) {
+    if (puntos > maxPuntos) {
+      personajeGanador = personaje;
+      maxPuntos = puntos;
+    }
+  }
+  return personajeGanador === 'Rojo' ? 'Lucian' : personajeGanador;
+}
+
 async function cargarResultados(usuario, opcionesSeleccionadas) {
   const personajesInfo = {
     Lucian: {
       nombre: 'Lucian',
-      texto:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo libero necessitatibus quis velit provident sit error mollitia delectus.',
+      texto: `
+      <div>
+        <h3 class="titulo-subtitulo texto-verde">Lucian</h3>
+        <p class="texto-alt">
+          Soy Lucian, tranquilo y paciente como la naturaleza. Mi misión es enseñarte a cuidar la tierra separando los residuos orgánicos en la <span class="texto-verde">bolsa verde</span>, como cáscaras de frutas, restos de comida o plantas secas, que pueden transformarse en abono para dar nueva vida a los suelos. Al hacerlo, reducimos la cantidad de basura y devolvemos a la naturaleza lo que ella misma nos dio.
+        </p>
+      </div>
+      <div>
+        <h5 class="titulo-subtitulo texto-verde">Recuerda residuos como...</h5>
+        <p>Cáscaras de plátano</p>
+        <p>Restos de pan</p>
+        <p>Hojas y ramas secas</p>
+      </div>
+      `,
       imagen: '../img/lucian/Lucian_N1.png',
+      color: 'verde',
     },
     Naira: {
       nombre: 'Naira',
-      texto:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo libero necessitatibus quis velit provident sit error mollitia delectus.',
+      texto: `
+      <div>
+        <h3 class="titulo-subtitulo texto-azul">Naira</h3>
+        <p class="texto-alt">
+          Soy Naira, protectora de los ríos y del aire limpio.
+          Me encargo de enseñarte a separar los residuos aprovechables, como botellas plásticas, vidrio, cartón limpio y metales en la <span class="texto-azul">bolsa blanca</span>, que pueden reciclarse y convertirse en nuevos productos. Separarlos correctamente evita que terminen contaminando el agua y la tierra, y ayuda a reducir la explotación de recursos naturales. 
+        </p>
+      </div>
+      <div>
+        <h5 class="titulo-subtitulo texto-azul">Recuerda residuos como...</h5>
+        <p>Botellas plasticas</p>
+        <p>Latas de gaseosa</p>
+        <p>Cartón y papel</p>
+      </div>
+      `,
       imagen: '../img/naira/Naira_1.png',
+      color: 'blanco',
     },
     Lucas: {
       nombre: 'Lucas',
-      texto:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo libero necessitatibus quis velit provident sit error mollitia delectus.',
+      texto: `
+      <div>
+        <h3 class="titulo-subtitulo texto-negro">Lucas</h3>
+        <p class="texto-alt">
+          Soy Lucas, curioso y creativo, siempre buscando ideas nuevas para reutilizar lo que parece no tener uso. Mi papel es mostrarte cómo identificar los residuos no aprovechables, como servilletas sucias, papeles contaminados o empaques metalizados, que deben ir en la <span class="texo-negro bold">bolsa negra</span>. Aunque muchos no se reciclan, algunos pueden inspirar a crear algo nuevo y así darles una segunda vida. 
+        </p>
+      </div>
+      <div>
+        <h5 class="titulo-subtitulo texto-negro">Recuerda residuos como...</h5>
+        <p>Botellas plasticas</p>
+        <p>Latas de gaseosa</p>
+        <p>Cartón y papel</p>
+      </div>
+      `,
       imagen: '../img/lucas/Lucas_1.png',
+      color: 'negro',
     },
     /*
     pendiente: {
       nombre: '¿?',
       texto: '¿?',
       imagen: '',
+      color: 'bg-rojo'
     },
     */
   };
@@ -134,9 +457,12 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   SOLO POR MIENTRAS, MODIFICAR UNA VEZ HAYA TEST
   */
   let personajes = Object.values(personajesInfo);
-  let indiceAleatorio = Math.floor(Math.random() * personajes.length);
-  const personajeSeleccionado = personajes[indiceAleatorio];
-  personajes.splice(indiceAleatorio, 1);
+  // let indiceAleatorio = Math.floor(Math.random() * personajes.length);
+  // const personajeSeleccionado = personajes[indiceAleatorio];
+  const personajeSeleccionado = personajesInfo[obtenerPersonaje(opcionesSeleccionadas)];
+  console.log(personajeSeleccionado);
+  personajes = personajes.filter((p) => p.nombre !== personajeSeleccionado.nombre);
+  console.log(personajes);
   /*
   ACA TERMINA LO PROVISIONAL
   */
@@ -161,34 +487,41 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   /* INSERCION HTML DE RESULTADOS */
 
   contenedorResultados.innerHTML = `
-      <h2 class="titulo-subtitulo">Querido ${usuario} ¡Tenemos tus resultados!</h2>
-      <div class="personaje-seleccionado-card">
-        <div class="imagen-personaje-seleccionado">
-          <img src="${personajeSeleccionado.imagen}" alt="${personajeSeleccionado.nombre}" />
+      <div class="resultado-principal">
+        <h2 class="titulo-subtitulo">Querido ${usuario} ¡Tenemos tus resultados!</h2>
+        <div class="personaje-seleccionado-card bg-${personajeSeleccionado.color}">
+          <div class="imagen-personaje-seleccionado">
+            <img src="${personajeSeleccionado.imagen}" alt="${personajeSeleccionado.nombre}" />
+          </div>
+          <div class="descripcion-personaje-seleccionado">
+            ${personajeSeleccionado.texto}
+          </div>
         </div>
-        <div class="descripcion-personaje-seleccionado">
-          <h3 class="titulo-subtitulo">${personajeSeleccionado.nombre}</h3>
-          <p class="texto-alt">${personajeSeleccionado.texto}</p>
-        </div>
+        <a class="button-abs titulo-subtitulo" href="#opc">Más informacion</a>
       </div>
-      <h4 class="titulo-subtitulo">Pero tambien puedes ser ellos:</h2>
-      <div class="otros-personajes">
+      <div id="opc" class="otros-personajes-contenedor">
+        <h4 class="titulo-subtitulo">Descubre como podrias mejorar lo que ya tienes:</h2>
+        <div class="otros-personajes">
+        </div>
+        <a class="button-abs titulo-subtitulo" href="#tp">Más informacion</a>
       </div>
   `;
   let otrosPersonajesContenedor = document.querySelector('.otros-personajes');
   personajes.forEach((personajeTmp) => {
     otrosPersonajesContenedor.innerHTML += `
-        <div class="otro-personaje-card">
+        <div class="otro-personaje-card bg-${personajeTmp.color}">
           <div class="imagen-personaje-alt">
             <img src="${personajeTmp.imagen}" alt="${personajeTmp.nombre}" />
           </div>
           <div class="descripcion-personaje-alt">
-            <h3 class="titulo-subtitulo">${personajeTmp.nombre}</h3>
-            <p class="texto-alt">${personajeTmp.texto}</p>
+            ${personajeTmp.texto}
           </div>
         </div>
+        
     `;
   });
+
+  manejarEventosEnTarjetas();
 
   /* INSERCION HTML DEL RANKING, POR AHORA SOLO TOP 3*/
   let data;
@@ -206,8 +539,8 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   }
   let podio = data.slice(0, 3);
   contenedorResultados.innerHTML += `
-      <section class="top-personajes">
-        <h2 class="titulo-subtitulo">🏅 Top 3 personajes</h2>
+      <section id="tp" class="top-personajes">
+        <h2 class="titulo-subtitulo">🏅 Top 3 personajes más frecuentes en los resultados</h2>
         <div class="top-cards">
         </div>
       </section>

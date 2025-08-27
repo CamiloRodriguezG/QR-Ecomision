@@ -22,6 +22,10 @@ Variables de colores
   --color-zapote: #ca900e;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .titulo-subtitulo {
   font-family: var(--fuente-principal);
 }
@@ -38,4 +42,20 @@ button {
   border-radius: 30px;
   transition: all 0.3s ease;
   font-size: 1rem;
+}
+
+.texto-verde {
+  color: var(--color-verde-claro);
+}
+
+.texto-azul {
+  color: var(--color-azul);
+}
+
+.texto-negro {
+  color: var(--texto-negro);
+}
+
+.bold {
+  font-weight: 800;
 }
