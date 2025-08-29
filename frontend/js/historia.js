@@ -65,9 +65,9 @@ function pasarPagina(pagina, seleccion) {
 function flipToFirstPage(flipbook, i) {
   if (i >= 1) {
     setTimeout(() => {
-      flipbook.turn('page', i, { duration: 300 });
+      flipbook.turn('page', i, { duration: 100 });
       flipToFirstPage(flipbook, i - 1);
-    }, 500);
+    }, 1000);
   }
 }
 

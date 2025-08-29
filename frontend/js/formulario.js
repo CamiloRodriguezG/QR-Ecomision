@@ -394,7 +394,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
           Soy Lucian, tranquilo y paciente como la naturaleza. Mi misión es enseñarte a cuidar la tierra separando los residuos orgánicos en la <span class="texto-verde">bolsa verde</span>, como cáscaras de frutas, restos de comida o plantas secas, que pueden transformarse en abono para dar nueva vida a los suelos. Al hacerlo, reducimos la cantidad de basura y devolvemos a la naturaleza lo que ella misma nos dio.
         </p>
       </div>
-      <div>
+      <div class="texto-alt">
         <h5 class="titulo-subtitulo texto-verde">Recuerda residuos como...</h5>
         <p>Cáscaras de plátano</p>
         <p>Restos de pan</p>
@@ -414,7 +414,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
           Me encargo de enseñarte a separar los residuos aprovechables, como botellas plásticas, vidrio, cartón limpio y metales en la <span class="texto-azul">bolsa blanca</span>, que pueden reciclarse y convertirse en nuevos productos. Separarlos correctamente evita que terminen contaminando el agua y la tierra, y ayuda a reducir la explotación de recursos naturales. 
         </p>
       </div>
-      <div>
+      <div class="texto-alt">
         <h5 class="titulo-subtitulo texto-azul">Recuerda residuos como...</h5>
         <p>Botellas plasticas</p>
         <p>Latas de gaseosa</p>
@@ -433,7 +433,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
           Soy Lucas, curioso y creativo, siempre buscando ideas nuevas para reutilizar lo que parece no tener uso. Mi papel es mostrarte cómo identificar los residuos no aprovechables, como servilletas sucias, papeles contaminados o empaques metalizados, que deben ir en la <span class="texo-negro bold">bolsa negra</span>. Aunque muchos no se reciclan, algunos pueden inspirar a crear algo nuevo y así darles una segunda vida. 
         </p>
       </div>
-      <div>
+      <div class="texto-alt">
         <h5 class="titulo-subtitulo texto-negro">Recuerda residuos como...</h5>
         <p>Botellas plasticas</p>
         <p>Latas de gaseosa</p>
