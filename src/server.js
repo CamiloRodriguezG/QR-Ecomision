@@ -5,6 +5,7 @@ const socketIo = require('socket.io');
 const path = require('path');
 
 const personajesRoutes = require('./routes/personajeRoutes');
+const ratingsRoutes = require('./routes/ratingsRoutes');
 
 const app = express();
 const server = http.createServer(app);
@@ -17,9 +18,10 @@ app.use(express.json());
 
 // Rutas API
 app.use('/personajes', personajesRoutes);
+app.use('/ratings', ratingsRoutes);
 
 // Enviar archivos estáticos desde el frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 io.on('connection', (socket) => {
   usuariosConectados++;

@@ -1,0 +1,134 @@
+.score {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  margin: 1rem;
+  position: relative;
+  transition: opacity 0.2s;
+}
+#play-again-btn {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  margin-left: -50px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #111;
+  border: 5px double #fff;
+  border-radius: 14px;
+  padding: 8px 10px;
+  outline: none;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s, background-color 0.2s;
+}
+#play-again-btn:hover {
+  background-color: #333;
+}
+#play-again-btn:active {
+  background-color: #555;
+}
+#play-again-btn.play-again-btn-entrance {
+  opacity: 1;
+  transform: translateX(6rem);
+}
+.draggable-items {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+  flex-wrap: wrap;
+}
+.draggable-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.draggable {
+  font-size: 3rem;
+  cursor: move;
+}
+.draggable-name {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  text-align: center;
+}
+.draggable:hover {
+  opacity: 0.5;
+}
+.matching-pairs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.matching-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.caneca {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain; /* que no se deforme la imagen */
+  border: none; /* quitamos el borde que antes era del div */
+}
+.label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+.matching-pair span {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+}
+
+.droppable {
+  width: 6rem;
+  font-size: 4rem;
+  transition: 0.2s;
+}
+.droppable-hover {
+  transform: scale(1.1);
+}
+.dropped {
+  border-style: solid;
+}
+.dragged {
+  user-select: none;
+  opacity: 0.1;
+  cursor: default;
+}
+.draggable.dragged:hover {
+  opacity: 0.1;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  #play-again-btn {
+    top: -0.4rem;
+  }
+  #play-again-btn.play-again-btn-entrance {
+    transform: translateX(7rem);
+  }
+}
+
+.terminar-juego-btn {
+  background-color: var(--color-verde-claro);
+  color: var(--color-blanco);
+}
+
+.terminar-juego-btn:hover {
+  background-color: var(--color-verde);
+}

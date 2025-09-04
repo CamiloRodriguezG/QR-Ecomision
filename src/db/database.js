@@ -1,17 +1,32 @@
+const path = require('path');
 const Database = require('better-sqlite3');
 
-// Conexión a la base de datos (crea el archivo si no existe)
-const db = new Database('./db/personajes.db', { verbose: console.log });
+// Asegura ruta absoluta: crea src/db/personajes.db
+const dbPath = path.join(__dirname, 'personajes.db');
+// const db = new Database(dbPath, { verbose: console.log });
+const db = new Database(dbPath);
 
 console.log('Conectado a SQLite');
 
-// Crear tabla si no existe
+// Crear tablas si no existen
 db.prepare(
   `
   CREATE TABLE IF NOT EXISTS Personajes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     personaje TEXT NOT NULL,
     count INTEGER DEFAULT 0
+  )
+`
+).run();
+
+db.prepare(
+  `
+  CREATE TABLE IF NOT EXISTS respuestas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    rating1 REAL,
+    rating2 REAL,
+    rating3 REAL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   )
 `
 ).run();

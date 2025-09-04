@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/juego.css" />
   </head>
   <body>
     <div id="header"></div>
@@ -28,6 +29,15 @@
         </div>
       </div>
       <div id="flipbook" class="contenedor-historia">
+        <div class="pagina page contenedor-viñeta">
+          <section class="score titulo-subtitulo">
+            <span class="correct">0</span>/<span class="total">0</span>
+            <button id="play-again-btn">Jugar de nuevo</button>
+          </section>
+          <section class="draggable-items"></section>
+          <section class="matching-pairs"></section>
+          <button class="terminar-juego-btn titulo-subtitulo historia-button">Continuar</button>
+        </div>
         <div class="pagina page contenedor-viñeta">
           <div class="plantas-top">
             <img src="./img/otras/Vegetacion_N.png" alt="Plantas" />
@@ -262,5 +272,6 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script> -->
     <script src="./js/include.js"></script>
     <script src="./js/historia.js"></script>
+    <script src="./js/juego.js"></script>
   </body>
 </html>

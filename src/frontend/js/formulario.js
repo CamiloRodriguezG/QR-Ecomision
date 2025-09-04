@@ -101,15 +101,6 @@ function mostrarPregunta(nueva) {
   barraAvance.style.width = `${avance}%`;
 }
 
-function manejarEventosEnTarjetas() {
-  const tarjetas = document.querySelectorAll('.otro-personaje-card');
-  tarjetas.forEach((tarjeta) => {
-    tarjeta.addEventListener('click', () => {
-      tarjeta.classList.toggle('expandida');
-    });
-  });
-}
-
 function obtenerPersonaje(opcionesSeleccionadas) {
   console.log(opcionesSeleccionadas);
   const respuestas = {
@@ -453,19 +444,11 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
     */
   };
 
-  /*
-  SOLO POR MIENTRAS, MODIFICAR UNA VEZ HAYA TEST
-  */
   let personajes = Object.values(personajesInfo);
-  // let indiceAleatorio = Math.floor(Math.random() * personajes.length);
-  // const personajeSeleccionado = personajes[indiceAleatorio];
   const personajeSeleccionado = personajesInfo[obtenerPersonaje(opcionesSeleccionadas)];
   console.log(personajeSeleccionado);
   personajes = personajes.filter((p) => p.nombre !== personajeSeleccionado.nombre);
   console.log(personajes);
-  /*
-  ACA TERMINA LO PROVISIONAL
-  */
 
   /* ACTUALIZACION EN EL BACKEND */
   try {
@@ -521,8 +504,6 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
     `;
   });
 
-  manejarEventosEnTarjetas();
-
   /* INSERCION HTML DEL RANKING, POR AHORA SOLO TOP 3*/
   let data;
   try {
@@ -543,6 +524,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
         <h2 class="titulo-subtitulo">🏅 Top 3 personajes más frecuentes en los resultados</h2>
         <div class="top-cards">
         </div>
+        <a class="button-abs titulo-subtitulo" href="#rating-section">Calificanos</a>
       </section>
   `;
   let contenedorTarjetasTop = document.querySelector('.top-cards');
@@ -586,6 +568,114 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
       </div>
     </div>
   `;
+  const ratingContainer = document.getElementById('rating-section');
+  ratingContainer.style.display = 'flex';
+  ratingContainer.innerHTML = `
+  <h2 class="titulo-subtitulo">Ayudanos calificandonos</h2>
+      <form id="encuesta-form">
+        <fieldset class="rating texto-alt">
+          <legend>Pregunta 1</legend>
+          <input type="radio" id="q1-star5" name="rating1" value="5" />
+          <label class="full" for="q1-star5" title="Awesome - 5 stars"></label>
+
+          <input type="radio" id="q1-star4half" name="rating1" value="4.5" />
+          <label class="half" for="q1-star4half" title="Pretty good - 4.5 stars"></label>
+
+          <input type="radio" id="q1-star4" name="rating1" value="4" />
+          <label class="full" for="q1-star4" title="Pretty good - 4 stars"></label>
+
+          <input type="radio" id="q1-star3half" name="rating1" value="3.5" />
+          <label class="half" for="q1-star3half" title="Meh - 3.5 stars"></label>
+
+          <input type="radio" id="q1-star3" name="rating1" value="3" />
+          <label class="full" for="q1-star3" title="Meh - 3 stars"></label>
+
+          <input type="radio" id="q1-star2half" name="rating1" value="2.5" />
+          <label class="half" for="q1-star2half" title="Kinda bad - 2.5 stars"></label>
+
+          <input type="radio" id="q1-star2" name="rating1" value="2" />
+          <label class="full" for="q1-star2" title="Kinda bad - 2 stars"></label>
+
+          <input type="radio" id="q1-star1half" name="rating1" value="1.5" />
+          <label class="half" for="q1-star1half" title="Meh - 1.5 stars"></label>
+
+          <input type="radio" id="q1-star1" name="rating1" value="1" />
+          <label class="full" for="q1-star1" title="Sucks big time - 1 star"></label>
+
+          <input type="radio" id="q1-starhalf" name="rating1" value="0.5" />
+          <label class="half" for="q1-starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+
+        <fieldset class="rating texto-alt">
+          <legend>Pregunta 2</legend>
+          <input type="radio" id="q2-star5" name="rating2" value="5" />
+          <label class="full" for="q2-star5" title="Awesome - 5 stars"></label>
+
+          <input type="radio" id="q2-star4half" name="rating2" value="4.5" />
+          <label class="half" for="q2-star4half" title="Pretty good - 4.5 stars"></label>
+
+          <input type="radio" id="q2-star4" name="rating2" value="4" />
+          <label class="full" for="q2-star4" title="Pretty good - 4 stars"></label>
+
+          <input type="radio" id="q2-star3half" name="rating2" value="3.5" />
+          <label class="half" for="q2-star3half" title="Meh - 3.5 stars"></label>
+
+          <input type="radio" id="q2-star3" name="rating2" value="3" />
+          <label class="full" for="q2-star3" title="Meh - 3 stars"></label>
+
+          <input type="radio" id="q2-star2half" name="rating2" value="2.5" />
+          <label class="half" for="q2-star2half" title="Kinda bad - 2.5 stars"></label>
+
+          <input type="radio" id="q2-star2" name="rating2" value="2" />
+          <label class="full" for="q2-star2" title="Kinda bad - 2 stars"></label>
+
+          <input type="radio" id="q2-star1half" name="rating2" value="1.5" />
+          <label class="half" for="q2-star1half" title="Meh - 1.5 stars"></label>
+
+          <input type="radio" id="q2-star1" name="rating2" value="1" />
+          <label class="full" for="q2-star1" title="Sucks big time - 1 star"></label>
+
+          <input type="radio" id="q2-starhalf" name="rating2" value="0.5" />
+          <label class="half" for="q2-starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+
+        <fieldset class="rating texto-alt">
+          <legend>Pregunta 3</legend>
+          <input type="radio" id="q3-star5" name="rating3" value="5" />
+          <label class="full" for="q3-star5" title="Awesome - 5 stars"></label>
+
+          <input type="radio" id="q3-star4half" name="rating3" value="4.5" />
+          <label class="half" for="q3-star4half" title="Pretty good - 4.5 stars"></label>
+
+          <input type="radio" id="q3-star4" name="rating3" value="4" />
+          <label class="full" for="q3-star4" title="Pretty good - 4 stars"></label>
+
+          <input type="radio" id="q3-star3half" name="rating3" value="3.5" />
+          <label class="half" for="q3-star3half" title="Meh - 3.5 stars"></label>
+
+          <input type="radio" id="q3-star3" name="rating3" value="3" />
+          <label class="full" for="q3-star3" title="Meh - 3 stars"></label>
+
+          <input type="radio" id="q3-star2half" name="rating3" value="2.5" />
+          <label class="half" for="q3-star2half" title="Kinda bad - 2.5 stars"></label>
+
+          <input type="radio" id="q3-star2" name="rating3" value="2" />
+          <label class="full" for="q3-star2" title="Kinda bad - 2 stars"></label>
+
+          <input type="radio" id="q3-star1half" name="rating3" value="1.5" />
+          <label class="half" for="q3-star1half" title="Meh - 1.5 stars"></label>
+
+          <input type="radio" id="q3-star1" name="rating3" value="1" />
+          <label class="full" for="q3-star1" title="Sucks big time - 1 star"></label>
+
+          <input type="radio" id="q3-starhalf" name="rating3" value="0.5" />
+          <label class="half" for="q3-starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+
+        <button type="submit" class="titulo-subtitulo" id="btn-enviar-calificacion">Enviar</button>
+      </form>
+  `;
+  document.getElementById('encuesta-form').addEventListener('submit', enviarCalificacion);
 }
 
 btnSiguiente.addEventListener('click', () => {
@@ -661,6 +751,33 @@ function verificarDatosUsuario() {
     formIngreso.classList.add('oculto');
     iniciarTest();
   }
+}
+
+// Envio de calificaciones
+async function enviarCalificacion(e) {
+  e.preventDefault();
+  const btnEnviar = document.getElementById('btn-enviar-calificacion');
+  btnEnviar.disabled = true;
+  btnEnviar.textContent = 'Enviando...';
+
+  // Captura los valores seleccionados
+  const data = {
+    rating1: document.querySelector('input[name="rating1"]:checked')?.value,
+    rating2: document.querySelector('input[name="rating2"]:checked')?.value,
+    rating3: document.querySelector('input[name="rating3"]:checked')?.value,
+  };
+
+  // Envía al backend
+  const res = await fetch('/ratings/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.json();
+  alert(result.message);
+  const ratingContainer = document.getElementById('rating-section');
+  ratingContainer.innerHTML = '<h3 class="titulo-subtitulo">¡Gracias por tu calificación!</h3>';
 }
 
 // Verificar datos al cargar la página
