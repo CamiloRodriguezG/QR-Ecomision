@@ -1,37 +1,60 @@
 const residuos = [
-  { nombre: 'Botella de vidrio', icono: 'wine-bottle', color: '#2E8B57', caneca: 'blanca' },
-  { nombre: 'Cáscara de plátano', icono: 'apple-alt', color: '#FFD700', caneca: 'verde' },
-  { nombre: 'Papel', icono: 'sticky-note', color: '#1E90FF', caneca: 'blanca' },
-  { nombre: 'Papel sucio', icono: 'toilet-paper', color: '#8B4513', caneca: 'negra' },
-  { nombre: 'Envase de plástico', icono: 'bottle-water', color: '#FF4500', caneca: 'blanca' },
-  { nombre: 'Aguja hipodérmica', icono: 'syringe', color: '#8B0000', caneca: 'roja' },
+  { nombre: 'Audifonos', imagen: '../img/juego/residuos/Audifonos_R.png', caneca: 'roja' },
+  { nombre: 'Banano', imagen: '../img/juego/residuos/Banano_V.png', caneca: 'verde' },
+  { nombre: 'Botella', imagen: '../img/juego/residuos/Botella_B.png', caneca: 'blanca' },
+  { nombre: 'Caja', imagen: '../img/juego/residuos/Caja_B.png', caneca: 'blanca' },
+  { nombre: 'Caja de Pizza', imagen: '../img/juego/residuos/CajaPizza_N.png', caneca: 'negra' },
+  { nombre: 'Hojas', imagen: '../img/juego/residuos/Hojas_V.png', caneca: 'verde' },
+  { nombre: 'Huevo', imagen: '../img/juego/residuos/Huevo_V.png', caneca: 'verde' },
+  { nombre: 'Jeringa', imagen: '../img/juego/residuos/Jeringa_R.png', caneca: 'roja' },
+  { nombre: 'Lata', imagen: '../img/juego/residuos/Lata_B.png', caneca: 'blanca' },
+  { nombre: 'Manzana', imagen: '../img/juego/residuos/Manzana_V.png', caneca: 'verde' },
+  { nombre: 'Medicamento', imagen: '../img/juego/residuos/Medicamento_R.png', caneca: 'roja' },
+  {
+    nombre: 'Papel Higiénico',
+    imagen: '../img/juego/residuos/PapelHigienico_N.png',
+    caneca: 'negra',
+  },
+  {
+    nombre: 'Paquete de Papas',
+    imagen: '../img/juego/residuos/PaquetePapas_N.png',
+    caneca: 'negra',
+  },
+  { nombre: 'Papel', imagen: '../img/juego/residuos/Pepel_B.png', caneca: 'blanca' },
+  { nombre: 'Pilas', imagen: '../img/juego/residuos/Pilas_R.png', caneca: 'roja' },
+  { nombre: 'Servilletas', imagen: '../img/juego/residuos/Servilletas_N.png', caneca: 'negra' },
 ];
 const canecas = [
   {
     nombre: 'Caneca Blanca',
     id: 'blanca',
     color: '#ffffff',
-    imagen: '../img/juego/basura_blanca.png',
+    imagen: '../img/juego/canecas/Bote blanco.png',
   },
   {
     nombre: 'Caneca Verde',
     id: 'verde',
     color: '#2E8B57',
-    imagen: '../img/juego/basura_verde.png',
+    imagen: '../img/juego/canecas/Bote verde.png',
   },
-  { nombre: 'Caneca Roja', id: 'roja', color: '#FF0000', imagen: '../img/juego/basura_roja.png' },
+  {
+    nombre: 'Caneca Roja',
+    id: 'roja',
+    color: '#FF0000',
+    imagen: '../img/juego/canecas/Bote rojo.png',
+  },
   {
     nombre: 'Caneca Negra',
     id: 'negra',
     color: '#000000',
-    imagen: '../img/juego/basura_negra.png',
+    imagen: '../img/juego/canecas/Bote negro.png',
   },
 ];
 
 let correct = 0;
 let total = 0;
 const totalDraggableItems = 5;
-const totalMatchingPairs = 5; // Should be <= totalDraggableItems
+const totalMatchingPairs = 5;
 
 const scoreSection = document.querySelector('.score');
 const correctSpan = scoreSection.querySelector('.correct');
@@ -53,29 +76,20 @@ function initiateGame() {
       'beforeend',
       `
       <div class="draggable-wrapper">
-        <i class="fas fa-${randomResiduos[i].icono} draggable" 
-           draggable="true" 
-           style="color:${randomResiduos[i].color};"
-           id="residuo-${i}"
-           data-caneca="${randomResiduos[i].caneca}">
-        </i>
+        <img 
+          src="${randomResiduos[i].imagen}" 
+          class="draggable" 
+          draggable="true" 
+          id="residuo-${i}" 
+          data-caneca="${randomResiduos[i].caneca}" 
+          alt="${randomResiduos[i].nombre}"
+        />
         <span class="draggable-name titulo-subtitulo">${randomResiduos[i].nombre}</span>
       </div>
     `
     );
   }
 
-  // Create "matching-pairs" and append to DOM
-  /*
-  for(let i=0; i<alphabeticallySortedRandomDroppableBrands.length; i++) {
-    matchingPairs.insertAdjacentHTML("beforeend", `
-      <div class="matching-pair">
-        <span class="label">${alphabeticallySortedRandomDroppableBrands[i].brandName}</span>
-        <span class="droppable" data-brand="${alphabeticallySortedRandomDroppableBrands[i].iconName}"></span>
-      </div>
-    `);
-  }
-  */
   // Crear las canecas
   for (let i = 0; i < canecas.length; i++) {
     matchingPairs.insertAdjacentHTML(
@@ -109,15 +123,10 @@ function initiateGame() {
   });
 }
 
-// Drag and Drop Functions
-
-//Events fired on the drag target
 
 function dragStart(event) {
-  event.dataTransfer.setData('text', event.target.id); // or "text/plain"
+  event.dataTransfer.setData('text', event.target.id);
 }
-
-//Events fired on the drop target
 
 function dragEnter(event) {
   if (
@@ -176,7 +185,6 @@ function drop(event) {
   }
 }
 
-// Other Event Listeners
 playAgainBtn.addEventListener('click', playAgainBtnClick);
 function playAgainBtnClick() {
   playAgainBtn.classList.remove('play-again-btn-entrance');
@@ -200,7 +208,6 @@ function playAgainBtnClick() {
   }, 500);
 }
 
-// Auxiliary functions
 function generateRandomItemsArray(n, originalArray) {
   let res = [];
   let clonedArray = [...originalArray];
