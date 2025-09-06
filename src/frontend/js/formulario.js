@@ -102,7 +102,6 @@ function mostrarPregunta(nueva) {
 }
 
 function obtenerPersonaje(opcionesSeleccionadas) {
-  console.log(opcionesSeleccionadas);
   const respuestas = {
     preguntas: [
       {
@@ -112,7 +111,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           { texto: 'Quien da consejos prácticos y tranquilos.', personaje: 'Lucian' },
           { texto: 'Quien siempre inventa algo nuevo con lo que hay.', personaje: 'Lucas' },
           { texto: 'Quien que todos hagan las cosas bien y ordenadas.', personaje: 'Naira' },
-          { texto: 'Quien asume los riesgos y protege al grupo.', personaje: 'Rojo' },
+          { texto: 'Quien asume los riesgos y protege al grupo.', personaje: 'Lira' },
         ],
       },
       {
@@ -132,7 +131,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           {
             texto:
               'Me preocupa que algunos envases contengan algo peligroso, verifico si requiere manejo especial.',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
           { texto: 'No hacer ninguna acción y seguir por delante', personaje: null },
         ],
@@ -158,7 +157,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           {
             texto:
               'Cuidas que productos químicos domésticos no entren al sistema de agua para evitar que se contamine.',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
         ],
       },
@@ -178,7 +177,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           {
             texto:
               'Algunos restos pueden atraer plagas o enfermedades, hay que manejarlos con cuidado.',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
           { texto: 'Disponer el residuo en cualquier basura.', personaje: null },
         ],
@@ -200,7 +199,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           {
             texto:
               'Me preocupa si queda con residuos líquidos que puedan contaminar o atraer bichos.',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
         ],
       },
@@ -219,7 +218,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           },
           {
             texto: 'Me fijo si son peligrosas (pilas, químicos) y las separo con cuidado.',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
           { texto: 'Tirarlo en la basura porque no funciona.', personaje: null },
         ],
@@ -228,7 +227,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
         id: 7,
         texto: '¿Qué haces con las pilas usadas en tu casa?',
         opciones: [
-          { texto: 'Busco un punto de recolección segura.', personaje: 'Rojo' },
+          { texto: 'Busco un punto de recolección segura.', personaje: 'Lira' },
           {
             texto: 'Emplear pilas recargables que permitan extender uso y vida útil.',
             personaje: 'Lucas',
@@ -261,7 +260,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           },
           {
             texto: 'Asegurar protocolos para residuos que representen un riesgo (pilas, químicos).',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
         ],
       },
@@ -284,7 +283,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           },
           {
             texto: '¿Hay sustancias peligrosas allí que requieran reporte y manejo especializado?',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
         ],
       },
@@ -306,7 +305,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           },
           {
             texto: 'Zonas seguras donde los residuos peligrosos se gestionen correctamente.',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
         ],
       },
@@ -329,7 +328,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           },
           {
             texto: 'Asegurar que no se ingresen materiales peligrosos a estos espacios.',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
         ],
       },
@@ -342,7 +341,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
           { texto: '“Si no sirve ni se transforma, al negro debe.”', personaje: 'Lucas' },
           {
             texto: '“Lo peligroso no se mezcla: Entrégalo de forma segura en el lugar correcto.”',
-            personaje: 'Rojo',
+            personaje: 'Lira',
           },
         ],
       },
@@ -371,7 +370,7 @@ function obtenerPersonaje(opcionesSeleccionadas) {
       maxPuntos = puntos;
     }
   }
-  return personajeGanador === 'Rojo' ? 'Lucian' : personajeGanador;
+  return personajeGanador;
 }
 
 async function cargarResultados(usuario, opcionesSeleccionadas) {
@@ -379,76 +378,182 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
     Lucian: {
       nombre: 'Lucian',
       texto: `
-      <div>
-        <h3 class="titulo-subtitulo texto-verde">Lucian</h3>
+      <div class="vista vista-descripcion active">
+        <h3 class="titulo-subtitulo bold texto-verde">Lucian</h3>
         <p class="texto-alt">
-          Soy Lucian, tranquilo y paciente como la naturaleza. Mi misión es enseñarte a cuidar la tierra separando los residuos orgánicos en la <span class="texto-verde">bolsa verde</span>, como cáscaras de frutas, restos de comida o plantas secas, que pueden transformarse en abono para dar nueva vida a los suelos. Al hacerlo, reducimos la cantidad de basura y devolvemos a la naturaleza lo que ella misma nos dio.
+          Soy Lucian, tranquilo y paciente como la naturaleza. Mi misión es enseñarte a cuidar la tierra separando los residuos orgánicos en la 
+          <span class="texto-verde">bolsa verde</span>, como cáscaras de frutas, restos de comida o plantas secas, que pueden transformarse en abono para dar nueva vida a los suelos. 
+          Al hacerlo, reducimos la cantidad de basura y devolvemos a la naturaleza lo que ella misma nos dio.
+        </p>
+        <div class="texto-alt">
+          <h5 class="titulo-subtitulo texto-verde">Recuerda residuos como...</h5>
+          <p>Cáscaras de plátano</p>
+          <p>Restos de pan</p>
+          <p>Hojas y ramas secas</p>
+        </div>
+      </div>
+
+      <div class="vista vista-preguntas texto-alt">
+        <h4 class="titulo-subtitulo texto-verde">Preguntas Frecuentes</h4>
+        <p>
+          <strong class="texto-verde">¿Las servilletas usadas van en la bolsa verde?</strong><br />
+          No, van en la bolsa negra, porque están contaminadas.
+        </p>
+        <p>
+          <strong class="texto-verde">¿Qué pasa si mezclo huesos con los orgánicos?</strong><br />
+          No se compostan fácilmente, van a la bolsa negra.
+        </p>
+        <p>
+          <strong class="texto-verde">¿Los residuos de poda o césped van en la verde?</strong><br />
+          Sí, siempre que no tengan químicos.
+        </p>
+        <p>
+          <strong class="texto-verde">¿Se pueden poner cáscaras de cítricos en el compostaje?</strong><br />
+          Sí, pero en poca cantidad.
         </p>
       </div>
-      <div class="texto-alt">
-        <h5 class="titulo-subtitulo texto-verde">Recuerda residuos como...</h5>
-        <p>Cáscaras de plátano</p>
-        <p>Restos de pan</p>
-        <p>Hojas y ramas secas</p>
-      </div>
+
+      <button class="btn-toggle titulo-subtitulo btn-t-verde">Preguntas frecuentes</button>
       `,
-      imagen: '../img/lucian/Lucian_N1.png',
+      imagen: '../img/lucian/Lucian_N8.png',
       color: 'verde',
     },
     Naira: {
       nombre: 'Naira',
       texto: `
-      <div>
-        <h3 class="titulo-subtitulo texto-azul">Naira</h3>
+      <div class="vista vista-descripcion active">
+        <h3 class="titulo-subtitulo bold texto-azul">Naira</h3>
         <p class="texto-alt">
           Soy Naira, protectora de los ríos y del aire limpio.
-          Me encargo de enseñarte a separar los residuos aprovechables, como botellas plásticas, vidrio, cartón limpio y metales en la <span class="texto-azul">bolsa blanca</span>, que pueden reciclarse y convertirse en nuevos productos. Separarlos correctamente evita que terminen contaminando el agua y la tierra, y ayuda a reducir la explotación de recursos naturales. 
+          Me encargo de enseñarte a separar los residuos aprovechables, como botellas plásticas, vidrio, cartón limpio y metales en la 
+          <span class="texto-azul">bolsa blanca</span>, que pueden reciclarse y convertirse en nuevos productos. 
+          Separarlos correctamente evita que terminen contaminando el agua y la tierra, y ayuda a reducir la explotación de recursos naturales.
+        </p>
+        <div class="texto-alt">
+          <h5 class="titulo-subtitulo texto-azul">Recuerda residuos como...</h5>
+          <p>Botellas plásticas</p>
+          <p>Latas de gaseosa</p>
+          <p>Cartón y papel</p>
+        </div>
+      </div>
+
+      <div class="vista vista-preguntas texto-alt">
+        <h4 class="titulo-subtitulo texto-azul">Preguntas Frecuentes</h4>
+        <p>
+          <strong class="texto-azul">¿El cartón de pizza va en la bolsa blanca?</strong><br />
+          No, si tiene grasa o restos de comida va en la negra.
+        </p>
+        <p>
+          <strong class="texto-azul">¿Los vasos plásticos desechables son reciclables?</strong><br />
+          Sí, si están limpios.
+        </p>
+        <p>
+          <strong class="texto-azul">¿El papel higiénico usado va en la blanca?</strong><br />
+          No, siempre en la negra.
+        </p>
+        <p>
+          <strong class="texto-azul">¿El vidrio roto es reciclable?</strong><br />
+          Sí, siempre que no sea vidrio de bombillas o espejos y la bolsa tenga visible la información que hay vidrios rotos.
         </p>
       </div>
-      <div class="texto-alt">
-        <h5 class="titulo-subtitulo texto-azul">Recuerda residuos como...</h5>
-        <p>Botellas plasticas</p>
-        <p>Latas de gaseosa</p>
-        <p>Cartón y papel</p>
-      </div>
+
+      <button class="btn-toggle titulo-subtitulo btn-t-azul">Preguntas frecuentes</button>
       `,
-      imagen: '../img/naira/Naira_1.png',
+      imagen: '../img/naira/Naira_4.png',
       color: 'blanco',
     },
     Lucas: {
       nombre: 'Lucas',
       texto: `
-      <div>
-        <h3 class="titulo-subtitulo texto-negro">Lucas</h3>
+      <div class="vista vista-descripcion active">
+        <h3 class="titulo-subtitulo bold texto-negro">Lucas</h3>
         <p class="texto-alt">
-          Soy Lucas, curioso y creativo, siempre buscando ideas nuevas para reutilizar lo que parece no tener uso. Mi papel es mostrarte cómo identificar los residuos no aprovechables, como servilletas sucias, papeles contaminados o empaques metalizados, que deben ir en la <span class="texo-negro bold">bolsa negra</span>. Aunque muchos no se reciclan, algunos pueden inspirar a crear algo nuevo y así darles una segunda vida. 
+          Soy Lucas, curioso y creativo, siempre buscando ideas nuevas para reutilizar lo que parece no tener uso. 
+          Mi papel es mostrarte cómo identificar los residuos no aprovechables, como servilletas sucias, papeles contaminados o empaques metalizados, 
+          que deben ir en la <span class="texto-negro bold">bolsa negra</span>. 
+          Aunque muchos no se reciclan, algunos pueden inspirar a crear algo nuevo y así darles una segunda vida.
+        </p>
+        <div class="texto-alt">
+          <h5 class="titulo-subtitulo texto-negro">Recuerda residuos como...</h5>
+          <p>Servilletas sucias</p>
+          <p>Papeles contaminados</p>
+          <p>Empaques metalizados</p>
+        </div>
+      </div>
+
+      <div class="vista vista-preguntas texto-alt">
+        <h4 class="titulo-subtitulo texto-negro">Preguntas Frecuentes</h4>
+        <p>
+          <strong class="texto-negro">¿Dónde van los tampones y toallas higiénicas?</strong><br />
+          Bolsa negra.
+        </p>
+        <p>
+          <strong class="texto-negro">¿Dónde van los condones?</strong><br />
+          Bolsa negra o roja.
+        </p>
+        <p>
+          <strong class="texto-negro">¿Dónde van las servilletas sucias?</strong><br />
+          Bolsa negra.
+        </p>
+        <p>
+          <strong class="texto-negro">¿Dónde van las colillas de cigarrillo?</strong><br />
+          Bolsa negra.
         </p>
       </div>
-      <div class="texto-alt">
-        <h5 class="titulo-subtitulo texto-negro">Recuerda residuos como...</h5>
-        <p>Botellas plasticas</p>
-        <p>Latas de gaseosa</p>
-        <p>Cartón y papel</p>
-      </div>
+
+      <button class="btn-toggle titulo-subtitulo btn-t-negro">Preguntas frecuentes</button>
       `,
-      imagen: '../img/lucas/Lucas_1.png',
+      imagen: '../img/lucas/Lucas_4.png',
       color: 'negro',
     },
-    /*
-    pendiente: {
-      nombre: '¿?',
-      texto: '¿?',
-      imagen: '',
-      color: 'bg-rojo'
+    Lira: {
+      nombre: 'Lira',
+      texto: `
+      <div class="vista vista-descripcion active">
+        <h3 class="titulo-subtitulo bold texto-rojo">Lira</h3>
+        <p class="texto-alt">
+          Soy Lira, un colibrí pequeño que ama las flores. 
+          Cuido los residuos peligrosos que van en la <span class="texto-rojo bold">bolsa roja</span>, como pilas, baterías o medicamentos vencidos. 
+          Si los botamos mal contaminan el agua y la tierra; yo te enseño a darles el lugar correcto para proteger la vida de todos.
+        </p>
+        <div class="texto-alt">
+          <h5 class="titulo-subtitulo texto-rojo">Recuerda residuos como...</h5>
+          <p>Medicamentos vencidos</p>
+          <p>Restos hospitalarios</p>
+          <p>Productos químicos</p>
+        </div>
+      </div>
+
+      <div class="vista vista-preguntas texto-alt">
+        <h4 class="titulo-subtitulo texto-rojo">Preguntas Frecuentes</h4>
+        <p>
+          <strong class="texto-rojo">¿Dónde van los medicamentos vencidos?</strong><br />
+          Bolsa roja, en puntos especializados de entrega.
+        </p>
+        <p>
+          <strong class="texto-rojo">¿Las pilas se pueden botar a la basura común?</strong><br />
+          No, siempre en puntos de acopio.
+        </p>
+        <p>
+          <strong class="texto-rojo">¿Dónde se deben llevar las jeringas?</strong><br />
+          Bolsa roja, protegidas en un recipiente rígido.
+        </p>
+        <p>
+          <strong class="texto-rojo">¿Qué hacer con aerosoles vacíos?</strong><br />
+          También en la bolsa roja, en contenedores especiales.
+        </p>
+      </div>
+
+      <button class="btn-toggle titulo-subtitulo btn-t-rojo">Preguntas frecuentes</button>
+      `,
+      imagen: '../img/lira/Lira_4.png',
+      color: 'rojo',
     },
-    */
   };
 
   let personajes = Object.values(personajesInfo);
   const personajeSeleccionado = personajesInfo[obtenerPersonaje(opcionesSeleccionadas)];
-  console.log(personajeSeleccionado);
   personajes = personajes.filter((p) => p.nombre !== personajeSeleccionado.nombre);
-  console.log(personajes);
 
   /* ACTUALIZACION EN EL BACKEND */
   try {
@@ -480,13 +585,15 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
             ${personajeSeleccionado.texto}
           </div>
         </div>
-        <a class="button-abs titulo-subtitulo" href="#opc">Más informacion</a>
+        <a class="button-abs titulo-subtitulo" href="#opc">Descubre a los demas</a>
       </div>
       <div id="opc" class="otros-personajes-contenedor">
+        <!--
         <h4 class="titulo-subtitulo">Descubre como podrias mejorar lo que ya tienes:</h2>
+        -->
         <div class="otros-personajes">
         </div>
-        <a class="button-abs titulo-subtitulo" href="#tp">Más informacion</a>
+        <a class="button-abs titulo-subtitulo" href="#tp">Descubre el podio</a>
       </div>
   `;
   let otrosPersonajesContenedor = document.querySelector('.otros-personajes');
@@ -518,7 +625,8 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
     contenedorResultados.innerHTML += '<h5>Error 2 con el ranking</h5>';
     throw new Error('Error en la respuesta');
   }
-  let podio = data.slice(0, 3);
+  // let podio = data.slice(0, 3);
+  let podio = data;
   contenedorResultados.innerHTML += `
       <section id="tp" class="top-personajes">
         <h2 class="titulo-subtitulo">🏅 Top 3 personajes más frecuentes en los resultados</h2>
@@ -537,7 +645,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
       <span class="medalla"><i class="fas fa-medal"></i></span>
       <img src="${imagen}" alt="${personaje}" />
       <div>
-        <h3 class="titulo-subtitulo">${personaje}</h3>
+        <h3 class="titulo-subtitulo bold">${personaje}</h3>
         <p class="texto-alt card-count">${count}</p>
       </div>
     </div>
@@ -574,104 +682,61 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   <h2 class="titulo-subtitulo">Ayudanos calificandonos</h2>
       <form id="encuesta-form">
         <fieldset class="rating texto-alt">
-          <legend>Pregunta 1</legend>
+          <legend>¿Qué tan claro te quedó cómo separar los residuos después de usar la página?</legend>
+          
           <input type="radio" id="q1-star5" name="rating1" value="5" />
-          <label class="full" for="q1-star5" title="Awesome - 5 stars"></label>
-
-          <input type="radio" id="q1-star4half" name="rating1" value="4.5" />
-          <label class="half" for="q1-star4half" title="Pretty good - 4.5 stars"></label>
+          <label class="full" for="q1-star5" title="Muy claro - 5 estrellas"></label>
 
           <input type="radio" id="q1-star4" name="rating1" value="4" />
-          <label class="full" for="q1-star4" title="Pretty good - 4 stars"></label>
-
-          <input type="radio" id="q1-star3half" name="rating1" value="3.5" />
-          <label class="half" for="q1-star3half" title="Meh - 3.5 stars"></label>
+          <label class="full" for="q1-star4" title="Claro - 4 estrellas"></label>
 
           <input type="radio" id="q1-star3" name="rating1" value="3" />
-          <label class="full" for="q1-star3" title="Meh - 3 stars"></label>
-
-          <input type="radio" id="q1-star2half" name="rating1" value="2.5" />
-          <label class="half" for="q1-star2half" title="Kinda bad - 2.5 stars"></label>
+          <label class="full" for="q1-star3" title="Medianamente claro - 3 estrellas"></label>
 
           <input type="radio" id="q1-star2" name="rating1" value="2" />
-          <label class="full" for="q1-star2" title="Kinda bad - 2 stars"></label>
-
-          <input type="radio" id="q1-star1half" name="rating1" value="1.5" />
-          <label class="half" for="q1-star1half" title="Meh - 1.5 stars"></label>
+          <label class="full" for="q1-star2" title="Poco claro - 2 estrellas"></label>
 
           <input type="radio" id="q1-star1" name="rating1" value="1" />
-          <label class="full" for="q1-star1" title="Sucks big time - 1 star"></label>
-
-          <input type="radio" id="q1-starhalf" name="rating1" value="0.5" />
-          <label class="half" for="q1-starhalf" title="Sucks big time - 0.5 stars"></label>
+          <label class="full" for="q1-star1" title="Muy poco claro - 1 estrella"></label>
         </fieldset>
 
         <fieldset class="rating texto-alt">
-          <legend>Pregunta 2</legend>
+          <legend>¿Qué tan útil consideras que fue la página para resolver dudas sobre la clasificación por colores de los residuos?</legend>
+          
           <input type="radio" id="q2-star5" name="rating2" value="5" />
-          <label class="full" for="q2-star5" title="Awesome - 5 stars"></label>
-
-          <input type="radio" id="q2-star4half" name="rating2" value="4.5" />
-          <label class="half" for="q2-star4half" title="Pretty good - 4.5 stars"></label>
+          <label class="full" for="q2-star5" title="Muy útil - 5 estrellas"></label>
 
           <input type="radio" id="q2-star4" name="rating2" value="4" />
-          <label class="full" for="q2-star4" title="Pretty good - 4 stars"></label>
-
-          <input type="radio" id="q2-star3half" name="rating2" value="3.5" />
-          <label class="half" for="q2-star3half" title="Meh - 3.5 stars"></label>
+          <label class="full" for="q2-star4" title="Útil - 4 estrellas"></label>
 
           <input type="radio" id="q2-star3" name="rating2" value="3" />
-          <label class="full" for="q2-star3" title="Meh - 3 stars"></label>
-
-          <input type="radio" id="q2-star2half" name="rating2" value="2.5" />
-          <label class="half" for="q2-star2half" title="Kinda bad - 2.5 stars"></label>
+          <label class="full" for="q2-star3" title="Medianamente útil - 3 estrellas"></label>
 
           <input type="radio" id="q2-star2" name="rating2" value="2" />
-          <label class="full" for="q2-star2" title="Kinda bad - 2 stars"></label>
-
-          <input type="radio" id="q2-star1half" name="rating2" value="1.5" />
-          <label class="half" for="q2-star1half" title="Meh - 1.5 stars"></label>
+          <label class="full" for="q2-star2" title="Poco útil - 2 estrellas"></label>
 
           <input type="radio" id="q2-star1" name="rating2" value="1" />
-          <label class="full" for="q2-star1" title="Sucks big time - 1 star"></label>
-
-          <input type="radio" id="q2-starhalf" name="rating2" value="0.5" />
-          <label class="half" for="q2-starhalf" title="Sucks big time - 0.5 stars"></label>
+          <label class="full" for="q2-star1" title="Nada útil - 1 estrella"></label>
         </fieldset>
 
         <fieldset class="rating texto-alt">
-          <legend>Pregunta 3</legend>
+          <legend>¿Qué tanto te motivó la experiencia para aplicar la separación de residuos en tu casa, colegio o comunidad?</legend>
+          
           <input type="radio" id="q3-star5" name="rating3" value="5" />
-          <label class="full" for="q3-star5" title="Awesome - 5 stars"></label>
-
-          <input type="radio" id="q3-star4half" name="rating3" value="4.5" />
-          <label class="half" for="q3-star4half" title="Pretty good - 4.5 stars"></label>
+          <label class="full" for="q3-star5" title="Muy motivado - 5 estrellas"></label>
 
           <input type="radio" id="q3-star4" name="rating3" value="4" />
-          <label class="full" for="q3-star4" title="Pretty good - 4 stars"></label>
-
-          <input type="radio" id="q3-star3half" name="rating3" value="3.5" />
-          <label class="half" for="q3-star3half" title="Meh - 3.5 stars"></label>
+          <label class="full" for="q3-star4" title="Motivado - 4 estrellas"></label>
 
           <input type="radio" id="q3-star3" name="rating3" value="3" />
-          <label class="full" for="q3-star3" title="Meh - 3 stars"></label>
-
-          <input type="radio" id="q3-star2half" name="rating3" value="2.5" />
-          <label class="half" for="q3-star2half" title="Kinda bad - 2.5 stars"></label>
+          <label class="full" for="q3-star3" title="Medianamente motivado - 3 estrellas"></label>
 
           <input type="radio" id="q3-star2" name="rating3" value="2" />
-          <label class="full" for="q3-star2" title="Kinda bad - 2 stars"></label>
-
-          <input type="radio" id="q3-star1half" name="rating3" value="1.5" />
-          <label class="half" for="q3-star1half" title="Meh - 1.5 stars"></label>
+          <label class="full" for="q3-star2" title="Poco motivado - 2 estrellas"></label>
 
           <input type="radio" id="q3-star1" name="rating3" value="1" />
-          <label class="full" for="q3-star1" title="Sucks big time - 1 star"></label>
-
-          <input type="radio" id="q3-starhalf" name="rating3" value="0.5" />
-          <label class="half" for="q3-starhalf" title="Sucks big time - 0.5 stars"></label>
+          <label class="full" for="q3-star1" title="Nada motivado - 1 estrella"></label>
         </fieldset>
-
         <button type="submit" class="titulo-subtitulo" id="btn-enviar-calificacion">Enviar</button>
       </form>
   `;
@@ -767,6 +832,13 @@ async function enviarCalificacion(e) {
     rating3: document.querySelector('input[name="rating3"]:checked')?.value,
   };
 
+  if (!data.rating1 || !data.rating2 || !data.rating3) {
+    alert('Por favor, responde todas las preguntas antes de enviar.');
+    btnEnviar.disabled = false;
+    btnEnviar.textContent = 'Enviar';
+    return;
+  }
+
   // Envía al backend
   const res = await fetch('/ratings/submit', {
     method: 'POST',
@@ -782,3 +854,20 @@ async function enviarCalificacion(e) {
 
 // Verificar datos al cargar la página
 document.addEventListener('DOMContentLoaded', verificarDatosUsuario);
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btn-toggle')) {
+    const btn = e.target;
+
+    const contenedor = btn.closest(
+      '.descripcion-personaje-seleccionado, .descripcion-personaje-alt'
+    );
+    if (!contenedor) return;
+
+    const vistas = contenedor.querySelectorAll('.vista');
+    vistas.forEach((v) => v.classList.toggle('active'));
+
+    btn.textContent =
+      btn.textContent === 'Preguntas frecuentes' ? 'Ver Descripción' : 'Preguntas frecuentes';
+  }
+});

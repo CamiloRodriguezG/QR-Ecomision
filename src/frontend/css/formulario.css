@@ -24,8 +24,49 @@
   border: 6px solid var(--color-rosa);
 }
 
-header nav a:last-child {
+.bg-blanco header nav a:last-child {
   color: var(--color-amarillo);
+}
+
+.btn-toggle {
+  background: none;
+  margin: 15px 0;
+}
+
+.btn-t-azul {
+  border: 2px solid var(--color-azul);
+  color: var(--color-azul);
+}
+.btn-t-azul:hover {
+  background: var(--color-azul);
+  color: var(--color-blanco);
+}
+
+.btn-t-rojo {
+  border: 2px solid var(--color-rosa);
+  color: var(--color-rosa);
+}
+.btn-t-rojo:hover {
+  background: var(--color-rosa);
+  color: var(--color-blanco);
+}
+
+.btn-t-negro {
+  border: 2px solid var(--color-negro);
+  color: var(--color-negro);
+}
+.btn-t-negro:hover {
+  background: var(--color-negro);
+  color: var(--color-blanco);
+}
+
+.btn-t-verde {
+  border: 2px solid var(--color-verde-claro);
+  color: var(--color-verde-claro);
+}
+.btn-t-verde:hover {
+  background: var(--color-verde-claro);
+  color: var(--color-blanco);
 }
 
 #form-container {
@@ -443,7 +484,8 @@ header nav a:last-child {
   max-height: 350px;
 }
 .imagen-personaje-alt img {
-  max-height: 350px;
+  max-height: 300px;
+  max-width: 200px;
 }
 
 /* .descripcion-personaje-seleccionado {
@@ -463,12 +505,6 @@ header nav a:last-child {
   margin-top: 20px;
   color: var(--color-blanco);
 } */
-
-#resultados-container h4 {
-  margin: 20px;
-  font-size: 1.5rem;
-  color: var(--color-verde);
-}
 
 .otros-personajes {
   width: 90%;
@@ -523,27 +559,55 @@ header nav a:last-child {
   font-size: 1rem;
 } */
 
+.vista {
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+  padding: 20px 0;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  color: var(--color-verde);
+}
+
+.vista-descripcion {
+  gap: 15px;
+}
+
+.vista-preguntas {
+  gap: 15px;
+}
+
+.vista-preguntas > h4 {
+  font-size: 2rem;
+}
+
+.vista.active {
+  opacity: 1;
+  height: 100%;
+}
+
 .descripcion-personaje-alt,
 .descripcion-personaje-seleccionado {
   position: relative;
   padding: 0 20px;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between;
   text-align: right;
   color: var(--color-verde);
 }
 
 .descripcion-personaje-alt h3,
 .descripcion-personaje-seleccionado h3 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .descripcion-personaje-alt h5,
 .descripcion-personaje-seleccionado h5 {
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .descripcion-personaje-alt p,
@@ -625,7 +689,8 @@ header nav a:last-child {
 }
 
 .card img {
-  max-width: 150px;
+  max-width: 200px;
+  max-height: 250px;
 }
 
 /* Alturas tipo podio */
@@ -667,8 +732,8 @@ header nav a:last-child {
 }
 
 .button-abs {
-  background: var(--color-rosa);
-  color: var(--color-blanco);
+  background: var(--color-zapote);
+  color: var(--color-negro);
   padding: 10px 20px;
   border-radius: 30px;
   position: absolute;
@@ -710,7 +775,9 @@ header nav a:last-child {
 .rating {
   border: none;
   padding: 10px 30px;
-  float: left;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
 }
 
 .rating > input {
@@ -831,7 +898,7 @@ header nav a:last-child {
   .otros-personajes,
   .personaje-seleccionado-card,
   .top-cards {
-    width: 70%;
+    width: 80%;
   }
 
   .form-ingreso-container {
@@ -846,7 +913,7 @@ header nav a:last-child {
   .otros-personajes,
   .personaje-seleccionado-card,
   .top-cards {
-    width: 65%;
+    width: 75%;
   }
 
   .form-ingreso-container {
@@ -860,7 +927,7 @@ header nav a:last-child {
   .otros-personajes,
   .personaje-seleccionado-card,
   .top-cards {
-    width: 60%;
+    width: 70%;
   }
 }
 

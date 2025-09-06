@@ -39,7 +39,7 @@ if (count === 0) {
     ['Lucian', 0],
     ['Naira', 0],
     ['Lucas', 0],
-    ['¿?', 0],
+    ['Lira', 0],
   ];
   const insertMany = db.transaction((personajes) => {
     for (const p of personajes) insert.run(p[0], p[1]);
