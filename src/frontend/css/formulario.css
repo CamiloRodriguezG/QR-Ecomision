@@ -467,6 +467,7 @@
 
 .personaje-seleccionado-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90%;
@@ -481,7 +482,7 @@
 }
 
 .imagen-personaje-seleccionado img {
-  max-height: 350px;
+  max-height: 250px;
 }
 .imagen-personaje-alt img {
   max-height: 300px;
@@ -510,6 +511,7 @@
   width: 90%;
   min-width: 300px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -526,11 +528,11 @@
   align-items: center;
   height: 450px;
   width: 100%;
-  flex: 1 1 0;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
   z-index: 1;
   overflow: hidden;
+  flex-direction: column;
 }
 
 .imagen-personaje-alt {
@@ -563,12 +565,12 @@
   opacity: 0;
   overflow: hidden;
   transition: opacity 0.5s ease;
-  padding: 20px 0;
+  padding: 0;
   height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: right;
+  text-align: center;
   color: var(--color-verde);
 }
 
@@ -658,7 +660,7 @@
 
 .resultado-principal,
 .otros-personajes-contenedor {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -670,8 +672,9 @@
 .top-cards {
   width: 90%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 10px;
   margin-top: 20px;
 }
@@ -681,9 +684,8 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
@@ -696,15 +698,15 @@
 /* Alturas tipo podio */
 .oro {
   background: #ffeb3b;
-  height: 450px;
+  width: 90%;
 }
 .plata {
   background: #cfd8dc;
-  height: 400px;
+  width: 75%;
 }
 .bronce {
   background: #d7a86e;
-  height: 350px;
+  width: 60%;
 }
 
 /* Medallas */
@@ -736,9 +738,7 @@
   color: var(--color-negro);
   padding: 10px 20px;
   border-radius: 30px;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  position: relative;
   text-decoration: none;
   font-size: 1rem;
 }
@@ -789,6 +789,7 @@
   font-family: FontAwesome;
   display: inline-block;
   content: '\f005';
+  cursor: pointer;
 }
 
 .rating > .half:before {
@@ -831,26 +832,19 @@
 
 /* Móviles muy pequeños (< 480px) */
 @media (max-width: 479px) {
+  .top-cards {
+    margin-bottom: 20px;
+  }
+
   .card img {
-    max-width: 80px;
-    max-height: 100px;
+    max-height: 200px;
+    max-width: 200px;
     width: auto;
   }
 
-  .oro {
-    height: 250px;
-  }
-  .plata {
-    background: #cfd8dc;
-    height: 225px;
-  }
-  .bronce {
-    background: #d7a86e;
-    height: 200px;
-  }
-
   .imagen-personaje-seleccionado img {
-    max-width: 150px;
+    max-height: 300px;
+    max-width: 200px;
   }
 
   .form-ingreso {
@@ -894,6 +888,55 @@
 
 /* Tablets (≥ 768px) */
 @media (min-width: 768px) {
+  .personaje-seleccionado-card {
+    flex-direction: row;
+  }
+
+  .vista {
+    padding: 20px 0;
+    text-align: right;
+  }
+
+  .button-abs {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .resultado-principal,
+  .otros-personajes-contenedor {
+    height: 100vh;
+  }
+
+  .otros-personajes {
+    flex-direction: row;
+  }
+
+  .otro-personaje-card {
+    flex: 1 1 0;
+    flex-direction: row;
+  }
+
+  .top-cards {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .card {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .oro {
+    height: 450px;
+  }
+  .plata {
+    height: 400px;
+  }
+  .bronce {
+    height: 350px;
+  }
+
   #form-preguntas,
   .otros-personajes,
   .personaje-seleccionado-card,
@@ -914,6 +957,11 @@
   .personaje-seleccionado-card,
   .top-cards {
     width: 75%;
+  }
+
+  .imagen-personaje-seleccionado img {
+    max-height: 300px;
+    max-width: 200px;
   }
 
   .form-ingreso-container {

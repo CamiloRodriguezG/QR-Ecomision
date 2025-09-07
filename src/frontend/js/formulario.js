@@ -773,7 +773,6 @@ btnSiguiente.addEventListener('click', () => {
       }
     });
     const usuario = localStorage.getItem('usuarioNombreQREM');
-
     cargarResultados(usuario, opcionesSeleccionadas);
 
     setTimeout(() => {
@@ -805,6 +804,20 @@ async function iniciarTest() {
   // Mostrar la primera pregunta
   preguntas[0].classList.add('active');
   numeroPregunta.textContent = 'Pregunta No. 1';
+  // cargarResultados(nombre, [
+  //   '\n                Quien que todos hagan las cosas bien y ordenadas.\n              ',
+  //   '\n                \n                  Me preocupa que algunos envases contengan algo peligroso, verifico si requiere\n                  manejo especial.\n                \n              ',
+  //   '\n                Buscas soluciones caseras para captar agua y reutilizarla.\n              ',
+  //   '\n                \n                  Algunos restos pueden atraer plagas o enfermedades, hay que manejarlos con\n                  cuidado.\n                \n              ',
+  //   '\n                \n                  Me preocupa si queda con residuos líquidos que puedan contaminar o atraer bichos.\n                \n              ',
+  //   '\n                Me fijo si son peligrosas (pilas, químicos) y las separo con cuidado.\n              ',
+  //   '\n                Pienso en cómo afectan al suelo si no se gestionan bien.\n              ',
+  //   '\n                \n                  Asegurar protocolos para residuos que representen un riesgo (pilas, químicos).\n                \n              ',
+  //   '\n                ¿Hay sustancias peligrosas allí que requieran reporte y manejo especializado?\n              ',
+  //   '\n                Zonas seguras donde los residuos peligrosos se gestionen correctamente.\n              ',
+  //   '\n                Asegurar que no se ingresen materiales peligrosos a estos espacios.\n              ',
+  //   '\n                “Lo peligroso no se mezcla: Entrégalo de forma segura en el lugar correcto.”\n              ',
+  // ]);
 }
 
 // Función para verificar si ya existen datos del usuario
