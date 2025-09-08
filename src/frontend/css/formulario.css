@@ -70,7 +70,7 @@
 }
 
 #form-container {
-  background-image: url('../img/otras/PatronAgua_Grafico_v2.png');
+  /* background-image: url('../img/otras/PatronAgua_Grafico_v2.png'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -535,6 +535,13 @@
   flex-direction: column;
 }
 
+.personaje-seleccionado-card,
+.otro-personaje-card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .imagen-personaje-alt {
   /* .descripcion-personaje-alt { */
   display: flex;
@@ -755,6 +762,7 @@
 }
 
 #rating-section {
+  background-color: var(--color-blanco);
   display: none;
   text-align: center;
   height: 100vh;
@@ -961,7 +969,7 @@
 
   .imagen-personaje-seleccionado img {
     max-height: 300px;
-    max-width: 200px;
+    max-width: 300px;
   }
 
   .form-ingreso-container {

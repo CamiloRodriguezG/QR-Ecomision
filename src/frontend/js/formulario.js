@@ -3,6 +3,7 @@ const formDatosPersonales = document.getElementById('form-datos-personales');
 const nombreInput = document.getElementById('nombre');
 const numeroPregunta = document.getElementById('numero-pregunta');
 const textoBienvenida = document.querySelector('.texto-bienvenida');
+const formCantainerBackground = document.getElementById('form-container');
 const formContainer = document.getElementById('form-preguntas');
 const preguntas = document.querySelectorAll('.pregunta-contenedor');
 const imagenLucian = document.querySelector('.imagen-lucian');
@@ -19,6 +20,26 @@ let usuariosConectados = 0;
 let avance = 0;
 let totalAns;
 const socket = io();
+const backgroundImgs = {
+  1: 'url("../img/otras/fondos/Fondo_P1.png")',
+  2: 'url("../img/otras/fondos/Fondo_P2.png")',
+  3: 'url("../img/otras/fondos/Fondo_P3-P9.png")',
+  4: 'url("../img/otras/fondos/Fondo_P4.png")',
+  5: 'url("../img/otras/fondos/Fondo_P5.png")',
+  6: 'url("../img/otras/fondos/Fondo_P6.png")',
+  7: 'url("../img/otras/fondos/Fondo_P7.png")',
+  8: 'url("../img/otras/fondos/Fondo_P8.png")',
+  9: 'url("../img/otras/fondos/Fondo_P3-P9.png")',
+  10: 'url("../img/otras/fondos/Fondo_P10.png")',
+  11: 'url("../img/otras/fondos/Fondo_P11.png")',
+  12: 'url("../img/otras/fondos/Fondo_P12.png")',
+};
+const backgroundImgPersonajes = {
+  Lucian: 'url("../img/otras/fondos/personajes/FF_Lucas.png")',
+  Naira: 'url("../img/otras/fondos/personajes/FF_Naira.png")',
+  Lucas: 'url("../img/otras/fondos/personajes/FF_Lucas.png")',
+  Lira: 'url("../img/otras/fondos/personajes/FF_Lira.png")',
+};
 
 // Funcion para obtener total de respuestas del test
 async function obtenerTotalAnswers() {
@@ -416,6 +437,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
       <button class="btn-toggle titulo-subtitulo btn-t-verde">Preguntas frecuentes</button>
       `,
       imagen: '../img/lucian/Lucian_N8.png',
+      imagenPodio: '../img/lucian/Lucian_N6.png',
       color: 'verde',
     },
     Naira: {
@@ -460,6 +482,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
       <button class="btn-toggle titulo-subtitulo btn-t-azul">Preguntas frecuentes</button>
       `,
       imagen: '../img/naira/Naira_4.png',
+      imagenPodio: '../img/naira/Naira_3.png',
       color: 'blanco',
     },
     Lucas: {
@@ -504,6 +527,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
       <button class="btn-toggle titulo-subtitulo btn-t-negro">Preguntas frecuentes</button>
       `,
       imagen: '../img/lucas/Lucas_4.png',
+      imagenPodio: '../img/lucas/Lucas_5.png',
       color: 'negro',
     },
     Lira: {
@@ -547,6 +571,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
       <button class="btn-toggle titulo-subtitulo btn-t-rojo">Preguntas frecuentes</button>
       `,
       imagen: '../img/lira/Lira_4.png',
+      imagenPodio: '../img/lira/Lira_2.png',
       color: 'rojo',
     },
   };
@@ -577,7 +602,9 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   contenedorResultados.innerHTML = `
       <div class="resultado-principal">
         <h2 class="titulo-subtitulo">Querido ${usuario} ¡Tenemos tus resultados!</h2>
-        <div class="personaje-seleccionado-card bg-${personajeSeleccionado.color}">
+        <div class="personaje-seleccionado-card bg-${
+          personajeSeleccionado.color
+        }" style='background-image: ${backgroundImgPersonajes[personajeSeleccionado.nombre]}'>
           <div class="imagen-personaje-seleccionado">
             <img src="${personajeSeleccionado.imagen}" alt="${personajeSeleccionado.nombre}" />
           </div>
@@ -599,7 +626,9 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   let otrosPersonajesContenedor = document.querySelector('.otros-personajes');
   personajes.forEach((personajeTmp) => {
     otrosPersonajesContenedor.innerHTML += `
-        <div class="otro-personaje-card bg-${personajeTmp.color}">
+        <div class="otro-personaje-card bg-${personajeTmp.color}" style='background-image: ${
+      backgroundImgPersonajes[personajeTmp.nombre]
+    }'>
           <div class="imagen-personaje-alt">
             <img src="${personajeTmp.imagen}" alt="${personajeTmp.nombre}" />
           </div>
@@ -638,12 +667,12 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   let contenedorTarjetasTop = document.querySelector('.top-cards');
 
   let { personaje, count } = podio[1];
-  let { imagen } = personajesInfo[personaje];
+  let { imagenPodio } = personajesInfo[personaje];
 
   contenedorTarjetasTop.innerHTML += `
     <div class="card plata">
       <span class="medalla"><i class="fas fa-medal"></i></span>
-      <img src="${imagen}" alt="${personaje}" />
+      <img src="${imagenPodio}" alt="${personaje}" />
       <div>
         <h3 class="titulo-subtitulo bold">${personaje}</h3>
         <p class="texto-alt card-count">${count}</p>
@@ -652,11 +681,11 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   `;
 
   ({ personaje, count } = podio[0]);
-  ({ imagen } = personajesInfo[personaje]);
+  ({ imagenPodio } = personajesInfo[personaje]);
   contenedorTarjetasTop.innerHTML += `
     <div class="card oro">
       <span class="medalla"><i class="fas fa-trophy"></i></span>
-      <img src="${imagen}" alt="${personaje}" />
+      <img src="${imagenPodio}" alt="${personaje}" />
       <div>
         <h3 class="titulo-subtitulo">${personaje}</h3>
         <p class="texto-alt card-count">${count}</p>
@@ -665,11 +694,11 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
   `;
 
   ({ personaje, count } = podio[2]);
-  ({ imagen } = personajesInfo[personaje]);
+  ({ imagenPodio } = personajesInfo[personaje]);
   contenedorTarjetasTop.innerHTML += `
     <div class="card bronce">
       <span class="medalla"><i class="fas fa-medal"></i></span>
-      <img src="${imagen}" alt="${personaje}" />
+      <img src="${imagenPodio}" alt="${personaje}" />
       <div>
         <h3 class="titulo-subtitulo">${personaje}</h3>
         <p class="texto-alt card-count">${count}</p>
@@ -765,6 +794,7 @@ btnSiguiente.addEventListener('click', () => {
   if (indiceActual < preguntas.length - 1) {
     mostrarPregunta(indiceActual + 1);
     numeroPregunta.textContent = `Pregunta No. ${indiceActual + 1}`;
+    formCantainerBackground.style.backgroundImage = backgroundImgs[indiceActual + 1];
   } else {
     let opcionesSeleccionadas = [];
     opcionesPreguntas.forEach((op) => {
@@ -791,6 +821,7 @@ btnAnterior.addEventListener('click', () => {
   if (indiceActual > 0) {
     mostrarPregunta(indiceActual - 1);
     numeroPregunta.textContent = `Pregunta No. ${indiceActual + 1}`;
+    formCantainerBackground.style.backgroundImage = backgroundImgs[indiceActual + 1];
   }
 });
 
@@ -803,6 +834,7 @@ async function iniciarTest() {
   } en hacerlo.</h1>`;
   // Mostrar la primera pregunta
   preguntas[0].classList.add('active');
+  formCantainerBackground.style.backgroundImage = backgroundImgs[1];
   numeroPregunta.textContent = 'Pregunta No. 1';
   // cargarResultados(nombre, [
   //   '\n                Quien que todos hagan las cosas bien y ordenadas.\n              ',
