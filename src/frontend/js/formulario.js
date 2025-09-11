@@ -21,24 +21,24 @@ let avance = 0;
 let totalAns;
 const socket = io();
 const backgroundImgs = {
-  1: 'url("../img/otras/fondos/Fondo_P1.png")',
-  2: 'url("../img/otras/fondos/Fondo_P2.png")',
-  3: 'url("../img/otras/fondos/Fondo_P3-P9.png")',
-  4: 'url("../img/otras/fondos/Fondo_P4.png")',
-  5: 'url("../img/otras/fondos/Fondo_P5.png")',
-  6: 'url("../img/otras/fondos/Fondo_P6.png")',
-  7: 'url("../img/otras/fondos/Fondo_P7.png")',
-  8: 'url("../img/otras/fondos/Fondo_P8.png")',
-  9: 'url("../img/otras/fondos/Fondo_P3-P9.png")',
-  10: 'url("../img/otras/fondos/Fondo_P10.png")',
-  11: 'url("../img/otras/fondos/Fondo_P11.png")',
-  12: 'url("../img/otras/fondos/Fondo_P12.png")',
+  1: 'url("../img/fondos/preguntas/Fondo_P1.png")',
+  2: 'url("../img/fondos/preguntas/Fondo_P2.png")',
+  3: 'url("../img/fondos/preguntas/Fondo_P3-P9.png")',
+  4: 'url("../img/fondos/preguntas/Fondo_P4.png")',
+  5: 'url("../img/fondos/preguntas/Fondo_P5.png")',
+  6: 'url("../img/fondos/preguntas/Fondo_P6.png")',
+  7: 'url("../img/fondos/preguntas/Fondo_P7.png")',
+  8: 'url("../img/fondos/preguntas/Fondo_P8.png")',
+  9: 'url("../img/fondos/preguntas/Fondo_P3-P9.png")',
+  10: 'url("../img/fondos/preguntas/Fondo_P10.png")',
+  11: 'url("../img/fondos/preguntas/Fondo_P11.png")',
+  12: 'url("../img/fondos/preguntas/Fondo_P12.png")',
 };
 const backgroundImgPersonajes = {
-  Lucian: 'url("../img/otras/fondos/personajes/FF_Lucas.png")',
-  Naira: 'url("../img/otras/fondos/personajes/FF_Naira.png")',
-  Lucas: 'url("../img/otras/fondos/personajes/FF_Lucas.png")',
-  Lira: 'url("../img/otras/fondos/personajes/FF_Lira.png")',
+  Lucian: 'url("../img/fondos/personajes/FF_Lucas.png")',
+  Naira: 'url("../img/fondos/personajes/FF_Naira.png")',
+  Lucas: 'url("../img/fondos/personajes/FF_Lucas.png")',
+  Lira: 'url("../img/fondos/personajes/FF_Lira.png")',
 };
 
 // Funcion para obtener total de respuestas del test

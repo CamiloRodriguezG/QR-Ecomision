@@ -184,8 +184,8 @@ function drop(event) {
   }
 }
 
-playAgainBtn.addEventListener('click', playAgainBtnClick);
-function playAgainBtnClick() {
+// playAgainBtn.addEventListener('click', playAgainBtnClick);
+export function playAgain() {
   playAgainBtn.classList.remove('play-again-btn-entrance');
   correct = 0;
   total = 0;
@@ -217,4 +217,29 @@ function generateRandomItemsArray(n, originalArray) {
     clonedArray.splice(randomIndex, 1);
   }
   return res;
+}
+
+export function getPuntajeTotal() {
+  return correct * 2 - (total - correct);
+}
+
+export function empezarJuego() {
+  const tiempoJuego = document.getElementById('time-juego');
+  let tiempoInicial = 30; // en segundos
+  for (let i = 0; i <= tiempoInicial; i++) {
+    setTimeout(() => {
+      tiempoJuego.textContent = tiempoInicial - i;
+      if (tiempoInicial - i === 0) {
+        const residuos = document.querySelectorAll('.draggable');
+        residuos.forEach((residuo) => {
+          residuo.classList.add('dragged');
+          residuo.setAttribute('draggable', 'false');
+        });
+        playAgainBtn.style.display = 'block';
+        setTimeout(() => {
+          playAgainBtn.classList.add('play-again-btn-entrance');
+        }, 200);
+      }
+    }, i * 1000);
+  }
 }

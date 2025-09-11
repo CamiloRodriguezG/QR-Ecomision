@@ -42,8 +42,8 @@ header nav a:first-child {
 }
 
 .neutral-btn {
-  color: var(--color-blanco);
-  background: var(--color-verde);
+  color: var(--color-marron);
+  background: var(--color-amarillo);
 }
 
 .cont-rojo-btn {
@@ -65,6 +65,7 @@ header nav a:first-child {
 .cont-verde-btn {
   color: var(--color-blanco);
   background: var(--color-verde-claro);
+  border: 2px solid var(--color-verde);
 }
 
 /* .contenedor-historia {
@@ -175,7 +176,6 @@ header nav a:first-child {
 
 .contenedor-texto-historia,
 .contenedor-selecciones {
-  width: 60%;
   display: flex;
 }
 
@@ -199,6 +199,116 @@ header nav a:first-child {
 .contenedor-selecciones {
   flex-direction: row;
   justify-content: space-between;
+}
+
+/* Nuevos estilos del libro */
+.pagina {
+  background-color: var(--color-verde);
+  position: relative;
+  min-width: 100dvw;
+  min-height: 100dvh;
+  background-size: 100% 100%;
+  overflow: hidden;
+  transition: opacity 0.1s ease-in-out;
+}
+
+#pagina1 {
+  background-image: url('../img/fondos/historia/Historia_1.1.png');
+}
+
+#pagina2 {
+  background-image: url('../img/fondos/historia/Historia_2.png');
+}
+
+#pagina3 {
+  background-image: url('../img/fondos/historia/Historia_3.png');
+}
+
+#pagina4 {
+  background-image: url('../img/fondos/historia/Historia_4.png');
+}
+
+#pagina5 {
+  background-image: url('../img/fondos/historia/Historia_5.png');
+}
+
+#pagina6 {
+  background-image: url('../img/fondos/historia/Historia_6.png');
+}
+
+#pagina7 {
+  background-image: url('../img/fondos/historia/Historia_7.1.png');
+}
+
+#pagina7b {
+  background-image: url('../img/fondos/historia/Historia_7.2.png');
+}
+
+#pagina8b {
+  background-image: url('../img/fondos/historia/Historia_8Bueno.png');
+}
+
+#pagina8m {
+  background-image: url('../img/fondos/historia/Historia_8Malo.png');
+}
+
+.contenedor-selecciones .neutral-btn,
+.contenedor-selecciones .cont-rojo-btn,
+.contenedor-selecciones .cont-verde-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40%;
+}
+
+.contenedor-selecciones .neutral-btn:hover,
+.contenedor-selecciones .cont-rojo-btn:hover,
+.contenedor-selecciones .cont-verde-btn:hover {
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.contenedor-decision {
+  padding: 20px 50px;
+  gap: 20px;
+  max-width: 550px;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: var(--color-blanco);
+}
+
+#pagina7b .contenedor-decision {
+  left: 10%;
+}
+
+.contenedor-opciones ol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.op-btn {
+  background-color: var(--color-verde-claro);
+  color: var(--color-blanco);
+}
+
+.op-btn:hover {
+  background-color: var(--color-verde);
+}
+
+.btn-oculto {
+  cursor: none;
+  opacity: 0;
+}
+
+.contenedor-juego {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* ========================================
