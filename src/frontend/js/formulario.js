@@ -601,7 +601,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
 
   contenedorResultados.innerHTML = `
       <div class="resultado-principal">
-        <h2 class="titulo-subtitulo">Querido ${usuario} ¡Tenemos tus resultados!</h2>
+        <h2 class="titulo-subtitulo">Querid@ ${usuario} ¡Tenemos tus resultados!</h2>
         <div class="personaje-seleccionado-card bg-${
           personajeSeleccionado.color
         }" style='background-image: ${backgroundImgPersonajes[personajeSeleccionado.nombre]}'>
@@ -829,7 +829,7 @@ btnAnterior.addEventListener('click', () => {
 async function iniciarTest() {
   const nombre = localStorage.getItem('usuarioNombreQREM');
   totalAns = await obtenerTotalAnswers();
-  textoBienvenida.innerHTML = `<h1>¡Bienvenido <span class="nombre-bienvenida">${nombre}</span>!<br>descubramos que guardián verde eres, serás el número ${
+  textoBienvenida.innerHTML = `<h1>¡Bienvenid@ <span class="nombre-bienvenida">${nombre}</span>!<br>descubramos que guardián verde eres, serás el número ${
     totalAns + 1
   } en hacerlo.</h1>`;
   // Mostrar la primera pregunta
