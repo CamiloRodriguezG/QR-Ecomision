@@ -7,6 +7,18 @@ let opcionesCorrectas = {
   7: 'A',
   '7b': 'A',
 };
+const paginas = {
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5',
+  6: '6',
+  7: '7',
+  8: '7b',
+  9: '8b',
+  10: '8m',
+};
 
 function pasarPagina(pagina, seleccion) {
   const flipbook = $('#flipbook');
@@ -95,6 +107,11 @@ function pasarPagina(pagina, seleccion) {
 }
 
 function flipToFirstPage(flipbook, i) {
+  if (i != 1) {
+    const elementoOcultar = document.querySelector(`#pagina${paginas[i]} div`);
+    elementoOcultar.classList.add('hide');
+  }
+
   if (i > 1 && i != 9) {
     setTimeout(() => {
       flipbook.turn('page', i, { duration: 100 });
@@ -120,6 +137,8 @@ function reiniciarHistoria() {
   const flipbook = $('#flipbook');
   puntajeHistoria = 0;
   let currentPage = flipbook.turn('page');
+  const elementoOcultar = document.querySelector(`#pagina${paginas[currentPage]} div`);
+  elementoOcultar.classList.add('hide');
   flipToFirstPage(flipbook, currentPage - 1);
   playAgain();
 }
@@ -159,19 +178,6 @@ $(document).ready(function () {
   });
 });
 
-const paginas = {
-  1: '1',
-  2: '2',
-  3: '3',
-  4: '4',
-  5: '5',
-  6: '6',
-  7: '7',
-  8: '7b',
-  9: '8b',
-  10: '8m',
-};
-
 $('#flipbook').bind('turned', function (event, page, view) {
   const elementoOculto = document.querySelector(`#pagina${paginas[page]} .hide`);
 
@@ -206,7 +212,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.85 }
+  { threshold: 0.5 }
 );
 
 observer.observe(flipbook);

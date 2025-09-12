@@ -113,10 +113,13 @@
     font-size: 14px;
   }
   #play-again-btn {
-    top: -0.4rem;
+    top: -45dvh;
+    margin-left: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   #play-again-btn.play-again-btn-entrance {
-    transform: translateY(-6rem) translateX(-100px);
+    transform: translateX(-50%) translateY(-8rem);
   }
   .draggable,
   .droppable {

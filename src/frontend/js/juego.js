@@ -453,7 +453,7 @@ export function getPuntajeTotal() {
 
 export function empezarJuego() {
   const tiempoJuego = document.getElementById('time-juego');
-  let tiempoRestante = 50;
+  let tiempoRestante = 47;
   tiempoJuego.textContent = tiempoRestante;
 
   const intervalo = setInterval(() => {
@@ -476,3 +476,27 @@ export function empezarJuego() {
     }
   }, 1000);
 }
+
+let isDragging = false;
+
+// cuando empieza a arrastrar un draggable
+document.querySelectorAll('.draggable').forEach((el) => {
+  el.addEventListener('touchstart', (e) => {
+    isDragging = true;
+  });
+
+  el.addEventListener('touchend', (e) => {
+    isDragging = false;
+  });
+});
+
+// en todo el documento, prevenimos scroll solo si estamos arrastrando
+document.addEventListener(
+  'touchmove',
+  (e) => {
+    if (isDragging) {
+      e.preventDefault(); // bloquea scroll
+    }
+  },
+  { passive: false }
+);

@@ -316,6 +316,8 @@ header nav a:first-child {
   left: 50%;
   transform: translateX(-50%);
   transition: all 1s ease-in-out;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .mobile-comp {
