@@ -216,6 +216,20 @@ header nav a:first-child {
   background-image: url('../img/fondos/historia/Historia_1.1.png');
 }
 
+#residuos-pag1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.imagen-visible {
+  opacity: 1 !important;
+}
+
 #pagina2 {
   background-image: url('../img/fondos/historia/Historia_2.png');
 }

@@ -225,21 +225,26 @@ export function getPuntajeTotal() {
 
 export function empezarJuego() {
   const tiempoJuego = document.getElementById('time-juego');
-  let tiempoInicial = 50; // en segundos
-  for (let i = 0; i <= tiempoInicial; i++) {
-    setTimeout(() => {
-      tiempoJuego.textContent = tiempoInicial - i;
-      if (tiempoInicial - i === 0) {
-        const residuos = document.querySelectorAll('.draggable');
-        residuos.forEach((residuo) => {
-          residuo.classList.add('dragged');
-          residuo.setAttribute('draggable', 'false');
-        });
-        playAgainBtn.style.display = 'block';
-        setTimeout(() => {
-          playAgainBtn.classList.add('play-again-btn-entrance');
-        }, 200);
-      }
-    }, i * 1000);
-  }
+  let tiempoRestante = 50; // en segundos
+  tiempoJuego.textContent = tiempoRestante;
+
+  const intervalo = setInterval(() => {
+    tiempoRestante--;
+    tiempoJuego.textContent = tiempoRestante;
+
+    if (tiempoRestante === 0 || correct === totalMatchingPairs) {
+      clearInterval(intervalo);
+
+      const residuos = document.querySelectorAll('.draggable');
+      residuos.forEach((residuo) => {
+        residuo.classList.add('dragged');
+        residuo.setAttribute('draggable', 'false');
+      });
+
+      playAgainBtn.style.display = 'block';
+      setTimeout(() => {
+        playAgainBtn.classList.add('play-again-btn-entrance');
+      }, 200);
+    }
+  }, 1000);
 }

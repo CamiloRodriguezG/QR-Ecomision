@@ -46,7 +46,7 @@
 } */
 #play-again-btn.play-again-btn-entrance {
   opacity: 1;
-  transform: translateX(6rem);
+  transform: translateX(5rem);
 }
 .draggable-items {
   display: flex;

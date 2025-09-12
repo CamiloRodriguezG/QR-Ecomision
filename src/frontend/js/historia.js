@@ -180,15 +180,14 @@ function flipToFirstPage(flipbook, i) {
 }
 
 function reiniciarHistoria() {
-  const flipbook = $('#flipbook');
-  puntajeHistoria = 0;
-  let currentPage = flipbook.turn('page');
-  flipToFirstPage(flipbook, currentPage - 1);
-  playAgain();
-  const pagina1 = document.getElementById('pagina1');
-  const boton = document.querySelector('#pagina1 .historia-button');
-  pagina1.style.backgroundImage = "url('./img/fondos/historia/Historia_1.1.png')";
-  boton.classList.add('btn-oculto');
+  return new Promise((resolve) => {
+    const flipbook = $('#flipbook');
+    puntajeHistoria = 0;
+    let currentPage = flipbook.turn('page');
+    flipToFirstPage(flipbook, currentPage - 1);
+    playAgain();
+    resolve();
+  });
 }
 
 $(document).ready(function () {
@@ -209,7 +208,14 @@ $(document).ready(function () {
     if (currentPage < totalPages) {
       pasarPagina(currentPage, seleccion);
     } else {
-      reiniciarHistoria();
+      const prom = reiniciarHistoria();
+
+      prom.then(() => {
+        const residuosPag1 = document.getElementById('residuos-pag1');
+        const botonPagina1 = document.querySelector('#pagina1 .historia-button');
+        if (residuosPag1) residuosPag1.classList.remove('imagen-visible');
+        if (botonPagina1) botonPagina1.classList.add('btn-oculto');
+      });
     }
   });
 });
@@ -220,10 +226,10 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const pagina1 = document.getElementById('pagina1');
+        const residuosPag1 = document.getElementById('residuos-pag1');
         const boton = document.querySelector('#pagina1 .historia-button');
         setTimeout(() => {
-          pagina1.style.backgroundImage = "url('./img/fondos/historia/Historia_1.2.png')";
+          residuosPag1.classList.add('imagen-visible');
           boton.classList.remove('btn-oculto');
         }, 3500);
       }
