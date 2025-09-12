@@ -14,35 +14,6 @@ header {
   background-position: 0 -10px;
 }
 
-/* .header-wrapper {
-  overflow: hidden;
-}
-
-header {
-  position: relative;
-  height: 230px;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  padding: 1rem 2rem;
-  font-family: var(--fuente-principal);
-  z-index: 1;
-}
-
-header::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -80px;
-  width: calc(100% + 80px);
-  height: 100%;
-  background-image: url('../img/Vegetacion_grafico.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: -1;
-} */
-
 .logo {
   display: flex;
   align-items: center;
@@ -56,6 +27,8 @@ header::before {
 
 nav {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -68,7 +41,11 @@ nav a {
   transition: all 0.3s ease;
 }
 
-nav a::after {
+nav a:hover {
+  transform: translateY(-3px);
+}
+
+/* nav a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -81,4 +58,11 @@ nav a::after {
 
 nav a:hover::after {
   width: 100%;
+} */
+
+#test-link {
+  background-color: var(--color-amarillo);
+  color: var(--color-verde);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
 }
