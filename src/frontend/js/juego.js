@@ -225,7 +225,7 @@ export function getPuntajeTotal() {
 
 export function empezarJuego() {
   const tiempoJuego = document.getElementById('time-juego');
-  let tiempoInicial = 30; // en segundos
+  let tiempoInicial = 50; // en segundos
   for (let i = 0; i <= tiempoInicial; i++) {
     setTimeout(() => {
       tiempoJuego.textContent = tiempoInicial - i;

@@ -14,6 +14,25 @@ const numeroUsuarios = document.getElementById('numero-usuarios');
 const barraAvance = document.querySelector('.barra-avance');
 const contenedorResultados = document.getElementById('resultados-container');
 
+const audioControlBtn = document.getElementById('audio-control-btn');
+const audio = new Audio('../audio/happydays.mp3');
+audio.loop = true;
+
+audioControlBtn.addEventListener('click', () => {
+  audio.muted = !audio.muted;
+  actualizarIconoAudio();
+});
+
+function actualizarIconoAudio() {
+  if (!audio.muted) {
+    audioControlBtn.classList.remove('fa-volume-xmark');
+    audioControlBtn.classList.add('fa-volume-high');
+  } else {
+    audioControlBtn.classList.remove('fa-volume-high');
+    audioControlBtn.classList.add('fa-volume-xmark');
+  }
+}
+
 let preguntasTotales = preguntas.length;
 let indiceActual = 0;
 let usuariosConectados = 0;
@@ -827,6 +846,9 @@ btnAnterior.addEventListener('click', () => {
 
 // Función para iniciar el test
 async function iniciarTest() {
+  audio.play().catch(() => {
+    console.log('El navegador bloqueó el autoplay hasta que el usuario interactúe');
+  });
   const nombre = localStorage.getItem('usuarioNombreQREM');
   totalAns = await obtenerTotalAnswers();
   textoBienvenida.innerHTML = `<h1>¡Bienvenid@ <span class="nombre-bienvenida">${nombre}</span>!<br>descubramos que guardián verde eres, serás el número ${

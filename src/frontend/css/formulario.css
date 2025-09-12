@@ -73,7 +73,7 @@
   /* background-image: url('../img/otras/PatronAgua_Grafico_v2.png'); */
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   /* background-size: 200% 200%; */
   text-align: center;
   position: relative;
@@ -85,6 +85,45 @@
   align-items: center;
   position: relative;
   gap: 30px;
+  animation: movimientoFondo 30s ease-in-out infinite;
+}
+
+@keyframes movimientoFondo {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.mute-audio {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.mute-audio i {
+  font-size: 1.5rem;
+  padding: 10px;
+  background: var(--color-verde);
+  color: var(--color-blanco);
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+}
+
+.mute-audio span {
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .contador-usuarios {
