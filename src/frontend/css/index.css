@@ -317,7 +317,7 @@ header nav a:first-child {
   transform: translateX(-50%);
   transition: all 1s ease-in-out;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .mobile-comp {
@@ -368,6 +368,7 @@ header nav a:first-child {
     width: 95%;
     background: var(--color-blanco);
     border-radius: 5px;
+    flex-direction: column-reverse;
   }
 
   .pantalla-bienvenida h1 {
