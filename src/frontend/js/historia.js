@@ -1,34 +1,6 @@
 import { getPuntajeTotal, playAgain, empezarJuego } from './juego.js';
 
 let puntajeHistoria = 0;
-// let seleccionesCorrecta = {
-//   3: {
-//     correcta: 'Contenedor verde',
-//     siguiente: 'p4',
-//     imagenesCorrectas: ['./img/lucian/Lucian_N5.png', './img/naira/Naira_2.png'],
-//     imagenesIncorrectas: ['./img/lucian/Lucian_N4.png', './img/naira/Naira_3.png'],
-//     imagenLucianCorrecta: './img/lucian/Lucian_N5.png',
-//     imagenLucianIncorrecta: './img/lucian/Lucian_N4.png',
-//     imagenNairaCorrecta: './img/naira/Naira_2.png',
-//     imagenNairaIncorrecta: './img/naira/Naira_3.png',
-//   },
-//   4: {
-//     correcta: 'Contenedor blanco',
-//     siguiente: 'p5',
-//     imagenesCorrectas: ['./img/lucian/Lucian_N1.png', './img/lucas/Lucas_3.png'],
-//     imagenesIncorrectas: ['./img/lucian/Lucian_N2.png', './img/lucas/Lucas_2.png'],
-//     imagenLucianCorrecta: './img/lucian/Lucian_N1.png',
-//     imagenLucianIncorrecta: './img/lucian/Lucian_N2.png',
-//     imagenLucasCorrecta: './img/naira/Lucas_3.png',
-//     imagenLucasIncorrecta: './img/naira/Lucas_2.png',
-//   },
-//   5: {
-//     correcta: 'Contenedor rojo',
-//     siguiente: 'na',
-//     imagenesCorrectas: [],
-//     imagenesIncorrectas: [],
-//   },
-// };
 let opcionesCorrectas = {
   3: 'B',
   5: 'A',
@@ -36,24 +8,10 @@ let opcionesCorrectas = {
   '7b': 'A',
 };
 
-function actualizarImagenes(pagina, imagenes) {
-  const ilustracionPagina = document.querySelectorAll(`.${pagina} .contenedor-ilustracion img`);
-  imagenes.forEach((src, index) => {
-    ilustracionPagina[index].src = src;
-  });
-}
-
 function pasarPagina(pagina, seleccion) {
   const flipbook = $('#flipbook');
   switch (pagina) {
     case 1:
-      // const divPagina1 = document.getElementById('pagina1');
-      // const buttonPagina1 = document.querySelector('#pagina1 .historia-button');
-      // buttonPagina1.style.display = 'none';
-      // divPagina1.style.backgroundImage = "url('./img/fondos/historia/Historia_1.2.png')";
-      // setTimeout(() => {
-      //   flipbook.turn('next');
-      // }, 1000);
       flipbook.turn('next');
       break;
     case 2:
@@ -134,27 +92,6 @@ function pasarPagina(pagina, seleccion) {
       }
       break;
   }
-
-  // if ([3, 4, 5].includes(pagina)) {
-  //   let datosPagina = seleccionesCorrecta[pagina];
-  //   if (seleccion == datosPagina.correcta) {
-  //     aciertos++;
-  //     actualizarImagenes(datosPagina.siguiente, datosPagina.imagenesCorrectas);
-  //   } else {
-  //     fallos++;
-  //     actualizarImagenes(datosPagina.siguiente, datosPagina.imagenesIncorrectas);
-  //   }
-  // }
-
-  // if (pagina != 5) {
-  //   flipbook.turn('next');
-  // } else {
-  //   if (fallos >= 2) {
-  //     flipbook.turn('page', 7);
-  //   } else {
-  //     flipbook.turn('page', 6);
-  //   }
-  // }
 }
 
 function flipToFirstPage(flipbook, i) {
@@ -180,14 +117,11 @@ function flipToFirstPage(flipbook, i) {
 }
 
 function reiniciarHistoria() {
-  return new Promise((resolve) => {
-    const flipbook = $('#flipbook');
-    puntajeHistoria = 0;
-    let currentPage = flipbook.turn('page');
-    flipToFirstPage(flipbook, currentPage - 1);
-    playAgain();
-    resolve();
-  });
+  const flipbook = $('#flipbook');
+  puntajeHistoria = 0;
+  let currentPage = flipbook.turn('page');
+  flipToFirstPage(flipbook, currentPage - 1);
+  playAgain();
 }
 
 $(document).ready(function () {
@@ -197,6 +131,14 @@ $(document).ready(function () {
     autoCenter: true,
     display: 'single', // Esto muestra solo una página a la vez,
     duration: 2000,
+    // when: {
+    //   start: function (event, pageObject, corner) {
+    //     if (corner == 'tl' || corner == 'bl' || corner == 'br') {
+    //       console.log(corner);
+    //       event.preventDefault();
+    //     }
+    //   },
+    // },
   });
 
   // Usar event delegation en el contenedor principal del flipbook
@@ -208,16 +150,45 @@ $(document).ready(function () {
     if (currentPage < totalPages) {
       pasarPagina(currentPage, seleccion);
     } else {
-      const prom = reiniciarHistoria();
-
-      prom.then(() => {
-        const residuosPag1 = document.getElementById('residuos-pag1');
-        const botonPagina1 = document.querySelector('#pagina1 .historia-button');
-        if (residuosPag1) residuosPag1.classList.remove('imagen-visible');
-        if (botonPagina1) botonPagina1.classList.add('btn-oculto');
-      });
+      reiniciarHistoria();
+      const residuosPag1 = document.getElementById('residuos-pag1');
+      const botonPagina1 = document.querySelector('#pagina1 .historia-button');
+      if (residuosPag1) residuosPag1.classList.remove('imagen-visible');
+      if (botonPagina1) botonPagina1.classList.add('btn-oculto');
     }
   });
+});
+
+const paginas = {
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5',
+  6: '6',
+  7: '7',
+  8: '7b',
+  9: '8b',
+  10: '8m',
+};
+
+$('#flipbook').bind('turned', function (event, page, view) {
+  const elementoOculto = document.querySelector(`#pagina${paginas[page]} .hide`);
+
+  if (elementoOculto && page != 1) {
+    elementoOculto.classList.remove('hide');
+  }
+  if (page == 6) {
+    const pagina = document.querySelector(`[page="${page}"]`);
+    pagina.firstElementChild.style.overflow = 'visible';
+  }
+});
+
+$('#flipbook').bind('turning', function (event, page, view) {
+  if (page == 7) {
+    const pagina = document.querySelector(`[page="6"]`);
+    pagina.firstElementChild.style.overflow = 'hidden';
+  }
 });
 
 const flipbook = document.getElementById('flipbook');
@@ -227,10 +198,10 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const residuosPag1 = document.getElementById('residuos-pag1');
-        const boton = document.querySelector('#pagina1 .historia-button');
+        const seleccion = document.querySelector('#pagina1 .contenedor-selecciones');
         setTimeout(() => {
           residuosPag1.classList.add('imagen-visible');
-          boton.classList.remove('btn-oculto');
+          seleccion.classList.remove('hide');
         }, 3500);
       }
     });

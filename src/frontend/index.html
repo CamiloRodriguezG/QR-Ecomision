@@ -31,19 +31,17 @@
       <div id="flipbook" class="contenedor-historia">
         <div id="pagina1" class="page pagina">
           <img id="residuos-pag1" src="./img/fondos/historia/Historia_1.1_.png" alt="residuos" />
-          <div class="contenedor-selecciones">
-            <button class="historia-button titulo-subtitulo neutral-btn btn-oculto">
-              Continuar
-            </button>
+          <div class="contenedor-selecciones hide">
+            <button class="historia-button titulo-subtitulo neutral-btn">Continuar</button>
           </div>
         </div>
         <div id="pagina2" class="page pagina">
-          <div class="contenedor-selecciones">
+          <div class="contenedor-selecciones hide">
             <button class="historia-button titulo-subtitulo neutral-btn">Continuar</button>
           </div>
         </div>
         <div id="pagina3" class="page pagina">
-          <div class="contenedor-decision">
+          <div class="contenedor-decision hide">
             <div class="contenedor-opciones texto-alt">
               <ol type="A">
                 <li>Evitan malos olores y la presencia de plagas.</li>
@@ -62,12 +60,12 @@
           </div>
         </div>
         <div id="pagina4" class="page pagina">
-          <div class="contenedor-selecciones">
+          <div class="contenedor-selecciones hide">
             <button class="historia-button titulo-subtitulo neutral-btn">Continuar</button>
           </div>
         </div>
         <div id="pagina5" class="page pagina">
-          <div class="contenedor-decision">
+          <div class="contenedor-decision hide">
             <div class="contenedor-opciones texto-alt">
               <ol type="A">
                 <li>
@@ -86,7 +84,7 @@
           </div>
         </div>
         <div id="pagina6" class="page pagina">
-          <div class="contenedor-juego">
+          <div class="contenedor-juego hide">
             <section class="score titulo-subtitulo">
               <div class="timer-juego">
                 <p class="timer-juego-text"><span id="time-juego">50</span>s</p>
@@ -101,7 +99,7 @@
           </div>
         </div>
         <div id="pagina7" class="page pagina">
-          <div class="contenedor-decision">
+          <div class="contenedor-decision hide">
             <div class="contenedor-opciones texto-alt">
               <ol type="A">
                 <li>
@@ -126,7 +124,7 @@
           </div>
         </div>
         <div id="pagina7b" class="page pagina">
-          <div class="contenedor-decision">
+          <div class="contenedor-decision hide">
             <div class="contenedor-opciones texto-alt">
               <ol type="A">
                 <li>
@@ -148,20 +146,21 @@
           </div>
         </div>
         <div id="pagina8b" class="page pagina">
-          <div class="contenedor-selecciones">
+          <div class="contenedor-selecciones hide">
             <button class="historia-button titulo-subtitulo cont-verde-btn">
               Reiniciar historia
             </button>
           </div>
         </div>
         <div id="pagina8m" class="page pagina">
-          <div class="contenedor-selecciones">
+          <div class="contenedor-selecciones hide">
             <button class="historia-button titulo-subtitulo cont-rojo-btn">
               Reiniciar historia
             </button>
           </div>
         </div>
       </div>
+      <div class="mobile-comp"></div>
     </main>
     <div id="footer"></div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -170,6 +169,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script> -->
     <script type="module" src="./js/include.js"></script>
     <script type="module" src="./js/historia.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script type="module" src="./js/juego.js"></script>
   </body>
 </html>

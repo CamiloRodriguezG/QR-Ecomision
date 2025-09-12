@@ -85,17 +85,12 @@ header nav a:first-child {
 }
 
 #flipbook {
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 100vh; */
+  max-width: 100dvw;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
-}
-
-.pagina {
-  width: 100%;
-  height: 100%;
-  background: var(--color-blanco);
-  position: relative;
 }
 
 .franja-azul,
@@ -176,6 +171,7 @@ header nav a:first-child {
 
 .contenedor-texto-historia,
 .contenedor-selecciones {
+  transition: all 1s ease-in-out;
   display: flex;
 }
 
@@ -205,8 +201,6 @@ header nav a:first-child {
 .pagina {
   background-color: var(--color-verde);
   position: relative;
-  min-width: 100dvw;
-  min-height: 100dvh;
   background-size: 100% 100%;
   overflow: hidden;
   transition: opacity 0.1s ease-in-out;
@@ -292,10 +286,7 @@ header nav a:first-child {
   flex-direction: column;
   border-radius: 10px;
   background: var(--color-blanco);
-}
-
-#pagina7b .contenedor-decision {
-  left: 10%;
+  transition: all 1s ease-in-out;
 }
 
 .contenedor-opciones ol {
@@ -313,9 +304,10 @@ header nav a:first-child {
   background-color: var(--color-verde);
 }
 
-.btn-oculto {
+.hide {
   cursor: none;
   opacity: 0;
+  pointer-events: none;
 }
 
 .contenedor-juego {
@@ -323,6 +315,13 @@ header nav a:first-child {
   bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
+  transition: all 1s ease-in-out;
+}
+
+.mobile-comp {
+  height: 0;
+  background: none;
+  z-index: -1;
 }
 
 /* ========================================
@@ -331,6 +330,44 @@ header nav a:first-child {
 
 /* Móviles muy pequeños (< 480px) */
 @media (max-width: 479px) {
+  #flipbook {
+    background-color: var(--color-verde);
+  }
+
+  .pagina {
+    overflow: visible;
+    max-height: 40dvh;
+  }
+
+  .contenedor-selecciones .neutral-btn,
+  .contenedor-selecciones .cont-rojo-btn,
+  .contenedor-selecciones .cont-verde-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40%;
+  }
+
+  .contenedor-decision {
+    padding: 10px 40px;
+    gap: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80%;
+    width: 80%;
+  }
+
+  .contenedor-decision .contenedor-selecciones .historia-button {
+    padding: 10px 20px;
+  }
+
+  .contenedor-juego {
+    bottom: -100%;
+    width: 95%;
+    background: var(--color-blanco);
+    border-radius: 5px;
+  }
+
   .pantalla-bienvenida h1 {
     font-size: 3rem;
   }
@@ -355,6 +392,9 @@ header nav a:first-child {
 
 /* Tablets (≥ 768px) */
 @media (min-width: 768px) {
+  #pagina7b .contenedor-decision {
+    left: 10%;
+  }
   .pantalla-bienvenida h1 {
     font-size: 5rem;
   }
