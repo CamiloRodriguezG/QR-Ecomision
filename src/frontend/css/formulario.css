@@ -69,6 +69,10 @@
   color: var(--color-blanco);
 }
 
+.oculto {
+  display: block;
+}
+
 #form-container {
   /* background-image: url('../img/otras/PatronAgua_Grafico_v2.png'); */
   background-size: cover;
@@ -784,9 +788,12 @@
   color: var(--color-negro);
   padding: 10px 20px;
   border-radius: 30px;
-  position: relative;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
   text-decoration: none;
   font-size: 1rem;
+  display: none;
 }
 
 /****** Style Star Rating Widget *****/
@@ -935,6 +942,10 @@
 
 /* Tablets (≥ 768px) */
 @media (min-width: 768px) {
+  .oculto {
+    display: none;
+  }
+
   .personaje-seleccionado-card {
     flex-direction: row;
   }
@@ -945,9 +956,10 @@
   }
 
   .button-abs {
-    position: absolute;
+    display: block;
+    /* position: absolute;
     bottom: 20px;
-    right: 20px;
+    right: 20px; */
   }
 
   .resultado-principal,

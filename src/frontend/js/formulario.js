@@ -634,9 +634,7 @@ async function cargarResultados(usuario, opcionesSeleccionadas) {
         <a class="button-abs titulo-subtitulo" href="#opc">Descubre a los demas</a>
       </div>
       <div id="opc" class="otros-personajes-contenedor">
-        <!--
-        <h4 class="titulo-subtitulo">Descubre como podrias mejorar lo que ya tienes:</h2>
-        -->
+        <h2 class="titulo-subtitulo oculto">Descubre como podrias mejorar lo que ya tienes:</h2>
         <div class="otros-personajes">
         </div>
         <a class="button-abs titulo-subtitulo" href="#tp">Descubre el podio</a>

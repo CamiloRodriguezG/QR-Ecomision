@@ -341,6 +341,10 @@ header nav a:first-child {
     max-height: 40dvh;
   }
 
+  #pagina6 {
+    background-image: url('../img/fondos/historia/Historia_6_mobile.png');
+  }
+
   .contenedor-selecciones .neutral-btn,
   .contenedor-selecciones .cont-rojo-btn,
   .contenedor-selecciones .cont-verde-btn {
