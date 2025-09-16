@@ -326,6 +326,45 @@ header nav a:first-child {
   z-index: -1;
 }
 
+/* Modal historia */
+
+.modal-historia {
+  font-family: var(--fuente-principal);
+}
+
+.modal-image {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.modal-btn-correcto,
+.modal-btn-incorrecto {
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 20px 50px;
+  border-radius: 30px;
+  transition: transform 0.3s ease, opacity 1s ease-in-out;
+  font-size: 1rem;
+  color: var(--color-blanco);
+}
+
+.modal-btn-correcto:hover,
+.modal-btn-incorrecto:hover {
+  transform: translateY(-5px);
+}
+
+.modal-btn-correcto {
+  background-color: var(--color-verde-claro);
+}
+
+.modal-btn-incorrecto {
+  background-color: var(--color-rosa);
+}
+
 /* ========================================
    MEDIA QUERIES - RESPONSIVE DESIGN
    ======================================== */

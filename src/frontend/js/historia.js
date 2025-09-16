@@ -20,8 +20,61 @@ const paginas = {
   10: '8m',
 };
 
+function mostrarRetroalimentacion(correcto, mensaje, imagen, imagenAlt, nextPage) {
+  if (correcto) {
+    Swal.fire({
+      title: '¡Correcto!',
+      text: mensaje,
+      imageUrl: imagen,
+      imageAlt: imagenAlt,
+      customClass: {
+        image: 'modal-image',
+        popup: 'modal-historia',
+        confirmButton: 'modal-btn-correcto',
+      },
+      confirmButtonText: 'Continuar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if ($('#flipbook').turn('page') == 5) {
+          empezarJuego();
+        }
+        if (nextPage) {
+          $('#flipbook').turn('page', nextPage);
+        } else {
+          $('#flipbook').turn('next');
+        }
+      }
+    });
+  } else {
+    Swal.fire({
+      title: 'Incorrecto...',
+      text: mensaje,
+      imageUrl: imagen,
+      imageAlt: imagenAlt,
+      customClass: {
+        image: 'modal-image',
+        popup: 'modal-historia',
+        confirmButton: 'modal-btn-incorrecto',
+      },
+      confirmButtonText: 'Continuar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if ($('#flipbook').turn('page') == 5) {
+          empezarJuego();
+        }
+        if (nextPage) {
+          $('#flipbook').turn('page', nextPage);
+        } else {
+          $('#flipbook').turn('next');
+        }
+      }
+    });
+  }
+}
+
 function pasarPagina(pagina, seleccion) {
   const flipbook = $('#flipbook');
+  let correcto, mensaje, imagen, imagenAlt;
   switch (pagina) {
     case 1:
       flipbook.turn('next');
@@ -32,17 +85,21 @@ function pasarPagina(pagina, seleccion) {
     case 3:
       if (seleccion === opcionesCorrectas[3]) {
         puntajeHistoria += 2;
-        alert(
-          'Exacto. Cuando los orgánicos se compostan, devuelven nutrientes al suelo, reducen la erosión y evitan que materia orgánica contamine el agua del humedal.'
-        );
+        correcto = true;
+        mensaje =
+          'Exacto. Cuando los orgánicos se compostan, devuelven nutrientes al suelo, reducen la erosión y evitan que materia orgánica contamine el agua del humedal.';
+        imagen = '../img/lucian/Lucian_N5.png';
+        imagenAlt = 'Lucian feliz';
       } else {
         puntajeHistoria -= 1;
-        alert(
-          'Casi, los malos olores pueden disminuir, pero lo más valioso es que los orgánicos bien manejados se convierten en abono y protegen el agua.'
-        );
         if (puntajeHistoria < 0) puntajeHistoria = 0;
+        correcto = false;
+        mensaje =
+          'Casi, los malos olores pueden disminuir, pero lo más valioso es que los orgánicos bien manejados se convierten en abono y protegen el agua.';
+        imagen = '../img/lucian/Lucian_N4.png';
+        imagenAlt = 'Lucian confundido';
       }
-      flipbook.turn('next');
+      mostrarRetroalimentacion(correcto, mensaje, imagen, imagenAlt);
       break;
     case 4:
       flipbook.turn('next');
@@ -50,18 +107,21 @@ function pasarPagina(pagina, seleccion) {
     case 5:
       if (seleccion === opcionesCorrectas[5]) {
         puntajeHistoria += 2;
-        alert(
-          'Muy bien. Separar los aprovechables permite reciclarlos, reduce la carga en Doña Juana y evita que botellas y plásticos tapen canales y dañen el humedal.'
-        );
+        correcto = true;
+        mensaje =
+          'Muy bien. Separar los aprovechables permite reciclarlos, reduce la carga en Doña Juana y evita que botellas y plásticos tapen canales y dañen el humedal.';
+        imagen = '../img/naira/Naira_2.png';
+        imagenAlt = 'Naira feliz';
       } else {
         puntajeHistoria -= 1;
-        alert(
-          'Buena observación, pero además de olores, la clave es que estos materiales pueden reciclarse y así disminuir lo que llega al relleno sanitario.'
-        );
         if (puntajeHistoria < 0) puntajeHistoria = 0;
+        correcto = false;
+        mensaje =
+          'Buena observación, pero además de olores, la clave es que estos materiales pueden reciclarse y así disminuir lo que llega al relleno sanitario.';
+        imagen = '../img/naira/Naira_3.png';
+        imagenAlt = 'Naira confundido';
       }
-      flipbook.turn('next');
-      empezarJuego();
+      mostrarRetroalimentacion(correcto, mensaje, imagen, imagenAlt);
       break;
     case 6:
       flipbook.turn('next');
@@ -69,39 +129,48 @@ function pasarPagina(pagina, seleccion) {
     case 7:
       if (seleccion === opcionesCorrectas[7]) {
         puntajeHistoria += 2;
-        alert(
-          'Exacto. Un envase sucio o un papel grasiento contamina la carga y puede hacer que todo el lote deje de ser reciclable.'
-        );
+        correcto = true;
+        mensaje =
+          'Exacto. Un envase sucio o un papel grasiento contamina la carga y puede hacer que todo el lote deje de ser reciclable.';
+        imagen = '../img/lucas/Lucas_3.png';
+        imagenAlt = 'Lucas feliz';
       } else {
         puntajeHistoria -= 1;
-        alert(
-          'No exactamente, aunque parezca algo indiferente, la contaminación de materiales reciclables reduce la recuperación y aumenta lo que termina en el relleno, incrementando su sobreocupación.'
-        );
         if (puntajeHistoria < 0) puntajeHistoria = 0;
+        correcto = false;
+        mensaje =
+          'No exactamente, aunque parezca algo indiferente, la contaminación de materiales reciclables reduce la recuperación y aumenta lo que termina en el relleno, incrementando su sobreocupación.';
+        imagen = '../img/lucas/Lucas_2.png';
+        imagenAlt = 'Lucas confundido';
       }
-      flipbook.turn('next');
+      mostrarRetroalimentacion(correcto, mensaje, imagen, imagenAlt);
       break;
     case 8:
-      if (seleccion === opcionesCorrectas['7b']) {
+      let nextPage;
+      if (seleccion === opcionesCorrectas[7]) {
         puntajeHistoria += 2;
-        alert(
-          'Correcto. Pilas, medicamentos y químicos pueden filtrarse al agua y acumularse en la cadena alimentaria, dañando animales y personas.'
-        );
+        correcto = true;
+        mensaje =
+          'Correcto. Pilas, medicamentos y químicos pueden filtrarse al agua y acumularse en la cadena alimentaria, dañando animales y personas.';
+        imagen = '../img/lira/Lira_2.png';
+        imagenAlt = 'Lira feliz';
       } else {
         puntajeHistoria -= 1;
-        alert(
-          'No, muchos residuos peligrosos no se degradan y liberan sustancias tóxicas que contaminan el agua y el suelo.'
-        );
         if (puntajeHistoria < 0) puntajeHistoria = 0;
+        correcto = false;
+        mensaje =
+          'No, muchos residuos peligrosos no se degradan y liberan sustancias tóxicas que contaminan el agua y el suelo.';
+        imagen = '../img/lira/Lira_3.png';
+        imagenAlt = 'Lira confundida';
       }
       puntajeHistoria += getPuntajeTotal();
       if (puntajeHistoria < 0) puntajeHistoria = 0;
-      console.log(puntajeHistoria);
       if (puntajeHistoria >= 9) {
-        flipbook.turn('page', 9);
+        nextPage = 9;
       } else {
-        flipbook.turn('page', 10);
+        nextPage = 10;
       }
+      mostrarRetroalimentacion(correcto, mensaje, imagen, imagenAlt, nextPage);
       break;
   }
 }
@@ -150,15 +219,9 @@ $(document).ready(function () {
     autoCenter: true,
     display: 'single', // Esto muestra solo una página a la vez,
     duration: 2000,
-    // when: {
-    //   start: function (event, pageObject, corner) {
-    //     if (corner == 'tl' || corner == 'bl' || corner == 'br') {
-    //       console.log(corner);
-    //       event.preventDefault();
-    //     }
-    //   },
-    // },
   });
+
+  $('#flipbook').turn('disable', true);
 
   // Usar event delegation en el contenedor principal del flipbook
   $('#flipbook').on('click', '.historia-button', function () {
