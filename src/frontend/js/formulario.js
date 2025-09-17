@@ -15,7 +15,8 @@ const barraAvance = document.querySelector('.barra-avance');
 const contenedorResultados = document.getElementById('resultados-container');
 
 const audioControlBtn = document.getElementById('audio-control-btn');
-const audio = new Audio('../audio/happydays.mp3');
+const audioText = document.getElementById('audio-text');
+const audio = new Audio('../audio/nature.mp3');
 audio.loop = true;
 
 audioControlBtn.addEventListener('click', () => {
@@ -27,9 +28,11 @@ function actualizarIconoAudio() {
   if (!audio.muted) {
     audioControlBtn.classList.remove('fa-volume-xmark');
     audioControlBtn.classList.add('fa-volume-high');
+    audioText.textContent = 'Desactivar sonido';
   } else {
     audioControlBtn.classList.remove('fa-volume-high');
     audioControlBtn.classList.add('fa-volume-xmark');
+    audioText.textContent = 'Activar sonido';
   }
 }
 

@@ -233,10 +233,6 @@ $(document).ready(function () {
       pasarPagina(currentPage, seleccion);
     } else {
       reiniciarHistoria();
-      const residuosPag1 = document.getElementById('residuos-pag1');
-      const botonPagina1 = document.querySelector('#pagina1 .historia-button');
-      if (residuosPag1) residuosPag1.classList.remove('imagen-visible');
-      if (botonPagina1) botonPagina1.classList.add('btn-oculto');
     }
   });
 });
