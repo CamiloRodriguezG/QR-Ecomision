@@ -41,6 +41,34 @@ header nav a:first-child {
   font-size: 1rem;
 }
 
+.pantalla-bienvenida div {
+  text-align: center;
+}
+
+.pantalla-bienvenida a {
+  text-decoration: none;
+  color: var(--color-amarillo);
+  font-size: 2.5rem;
+  padding: 50px 0 0 0;
+}
+
+@keyframes movimientoFlecha {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(10px) scale(1.2);
+  }
+}
+
+.pantalla-bienvenida a > i {
+  margin-top: 70px;
+  transition: all 0.5s ease;
+  animation: movimientoFlecha 2s ease-in-out infinite;
+}
+
 .neutral-btn {
   color: var(--color-marron);
   background: var(--color-amarillo);
