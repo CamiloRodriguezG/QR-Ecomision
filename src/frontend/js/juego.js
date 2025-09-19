@@ -143,6 +143,7 @@ function activarDragDrop() {
       event.target.classList.remove('droppable-hover');
     },
     ondrop(event) {
+      event.target.classList.remove('droppable-hover');
       const residuo = event.relatedTarget;
       const canecaCorrecta = residuo.getAttribute('data-caneca');
       const canecaSeleccionada = event.target.getAttribute('data-caneca');

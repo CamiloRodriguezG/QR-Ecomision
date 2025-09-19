@@ -28,6 +28,10 @@ header nav a:first-child {
   align-items: center;
 }
 
+.pantalla-bienvenida img {
+  max-height: 200px;
+}
+
 .pantalla-bienvenida h1 {
   color: var(--color-amarillo);
   font-size: 5rem;

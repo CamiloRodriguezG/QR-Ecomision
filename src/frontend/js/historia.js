@@ -189,7 +189,7 @@ function flipToFirstPage(flipbook, i) {
   } else if (i == 9) {
     setTimeout(() => {
       flipbook.turn('page', i - 1, { duration: 100 });
-      flipToFirstPage(flipbook, i - 1);
+      flipToFirstPage(flipbook, i - 2);
     }, 1000);
   } else if (i == 1) {
     const divPagina1 = document.getElementById('pagina1');
